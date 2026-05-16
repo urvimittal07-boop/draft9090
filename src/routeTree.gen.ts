@@ -9,9 +9,41 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CapstoneRouteImport } from './routes/capstone'
+import { Route as CampaignsRouteImport } from './routes/campaigns'
+import { Route as AcademicsRouteImport } from './routes/academics'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CapstoneIdRouteImport } from './routes/capstone.$id'
+import { Route as CampaignsIdRouteImport } from './routes/campaigns.$id'
 
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapstoneRoute = CapstoneRouteImport.update({
+  id: '/capstone',
+  path: '/capstone',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampaignsRoute = CampaignsRouteImport.update({
+  id: '/campaigns',
+  path: '/campaigns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademicsRoute = AcademicsRouteImport.update({
+  id: '/academics',
+  path: '/academics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -22,35 +54,134 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CapstoneIdRoute = CapstoneIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => CapstoneRoute,
+} as any)
+const CampaignsIdRoute = CampaignsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => CampaignsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/academics': typeof AcademicsRoute
+  '/campaigns': typeof CampaignsRouteWithChildren
+  '/capstone': typeof CapstoneRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/campaigns/$id': typeof CampaignsIdRoute
+  '/capstone/$id': typeof CapstoneIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/academics': typeof AcademicsRoute
+  '/campaigns': typeof CampaignsRouteWithChildren
+  '/capstone': typeof CapstoneRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/campaigns/$id': typeof CampaignsIdRoute
+  '/capstone/$id': typeof CapstoneIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/academics': typeof AcademicsRoute
+  '/campaigns': typeof CampaignsRouteWithChildren
+  '/capstone': typeof CapstoneRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/campaigns/$id': typeof CampaignsIdRoute
+  '/capstone/$id': typeof CapstoneIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/academics'
+    | '/campaigns'
+    | '/capstone'
+    | '/contact'
+    | '/gallery'
+    | '/campaigns/$id'
+    | '/capstone/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about'
-  id: '__root__' | '/' | '/about'
+  to:
+    | '/'
+    | '/about'
+    | '/academics'
+    | '/campaigns'
+    | '/capstone'
+    | '/contact'
+    | '/gallery'
+    | '/campaigns/$id'
+    | '/capstone/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/academics'
+    | '/campaigns'
+    | '/capstone'
+    | '/contact'
+    | '/gallery'
+    | '/campaigns/$id'
+    | '/capstone/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AcademicsRoute: typeof AcademicsRoute
+  CampaignsRoute: typeof CampaignsRouteWithChildren
+  CapstoneRoute: typeof CapstoneRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capstone': {
+      id: '/capstone'
+      path: '/capstone'
+      fullPath: '/capstone'
+      preLoaderRoute: typeof CapstoneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campaigns': {
+      id: '/campaigns'
+      path: '/campaigns'
+      fullPath: '/campaigns'
+      preLoaderRoute: typeof CampaignsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academics': {
+      id: '/academics'
+      path: '/academics'
+      fullPath: '/academics'
+      preLoaderRoute: typeof AcademicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -65,12 +196,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/capstone/$id': {
+      id: '/capstone/$id'
+      path: '/$id'
+      fullPath: '/capstone/$id'
+      preLoaderRoute: typeof CapstoneIdRouteImport
+      parentRoute: typeof CapstoneRoute
+    }
+    '/campaigns/$id': {
+      id: '/campaigns/$id'
+      path: '/$id'
+      fullPath: '/campaigns/$id'
+      preLoaderRoute: typeof CampaignsIdRouteImport
+      parentRoute: typeof CampaignsRoute
+    }
   }
 }
+
+interface CampaignsRouteChildren {
+  CampaignsIdRoute: typeof CampaignsIdRoute
+}
+
+const CampaignsRouteChildren: CampaignsRouteChildren = {
+  CampaignsIdRoute: CampaignsIdRoute,
+}
+
+const CampaignsRouteWithChildren = CampaignsRoute._addFileChildren(
+  CampaignsRouteChildren,
+)
+
+interface CapstoneRouteChildren {
+  CapstoneIdRoute: typeof CapstoneIdRoute
+}
+
+const CapstoneRouteChildren: CapstoneRouteChildren = {
+  CapstoneIdRoute: CapstoneIdRoute,
+}
+
+const CapstoneRouteWithChildren = CapstoneRoute._addFileChildren(
+  CapstoneRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AcademicsRoute: AcademicsRoute,
+  CampaignsRoute: CampaignsRouteWithChildren,
+  CapstoneRoute: CapstoneRouteWithChildren,
+  ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
