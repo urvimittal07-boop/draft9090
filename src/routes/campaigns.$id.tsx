@@ -46,7 +46,7 @@ function CampaignDetail() {
         </h1>
         <div className="font-display italic text-2xl md:text-3xl mt-3 max-w-[40ch]">{c.tagline}</div>
         <div className="flex flex-wrap gap-2 mt-6">
-          {c.tags.map((t) => (
+          {c.tags.map((t: string) => (
             <span key={t} className="text-xs font-accent uppercase tracking-widest bg-black/25 px-3 py-1">{t}</span>
           ))}
         </div>
@@ -77,7 +77,7 @@ function CampaignDetail() {
         The <span className={accentText}>creatives</span>
       </h2>
       <div className="grid md:grid-cols-3 gap-6">
-        {c.creatives.map((cr, i) => (
+        {c.creatives.map((cr: { title: string; note: string }, i: number) => (
           <div
             key={cr.title}
             style={{ transform: `rotate(${(i - 1) * 1.2}deg)` }}

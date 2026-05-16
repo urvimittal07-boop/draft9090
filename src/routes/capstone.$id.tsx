@@ -60,7 +60,7 @@ function CapstoneDetail() {
 
         <h2 className="font-accent uppercase text-3xl mt-10 mb-4">The process</h2>
         <ol className="space-y-3">
-          {p.process.map((step, i) => (
+          {p.process.map((step: string, i: number) => (
             <li key={i} className="flex gap-4 items-start">
               <span className="font-marker text-hotpink text-2xl leading-none">{String(i + 1).padStart(2, "0")}</span>
               <span className="text-lg">{step}</span>
