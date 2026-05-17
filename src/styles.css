@@ -89,14 +89,13 @@
     color: var(--color-ink);
     font-family: var(--font-body);
   }
-  ::selection { background: var(--color-hotpink); color: white; }
+  ::selection { background: var(--color-babypink-strong); color: var(--color-ink); }
 
   body {
+    background-color: var(--color-paper);
     background-image:
-      radial-gradient(oklch(0.13 0.01 280 / 0.05) 1px, transparent 1px),
-      radial-gradient(oklch(0.13 0.01 280 / 0.03) 1px, transparent 1px);
-    background-size: 24px 24px, 6px 6px;
-    background-position: 0 0, 3px 3px;
+      radial-gradient(oklch(0.16 0.01 60 / 0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 }
 
