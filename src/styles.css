@@ -31,11 +31,14 @@
 
   --color-paper: var(--paper);
   --color-ink: var(--ink);
+  --color-babypink: var(--babypink);
+  --color-babypink-strong: var(--babypink-strong);
   --color-hotpink: var(--hotpink);
   --color-orange: var(--orange);
   --color-cream: var(--cream);
 
-  --font-display: "Playfair Display", serif;
+  --font-display: "Fraunces", "Playfair Display", serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", serif;
   --font-marker: "Permanent Marker", cursive;
   --font-accent: "Anton", sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -45,11 +48,14 @@
 :root {
   --radius: 0.5rem;
 
-  --paper: oklch(0.985 0.025 95);
-  --cream: oklch(0.97 0.04 88);
-  --ink: oklch(0.13 0.01 280);
-  --hotpink: oklch(0.66 0.27 348);
-  --orange: oklch(0.7 0.22 42);
+  /* warm, editorial, soft */
+  --paper: oklch(0.985 0.006 60);          /* off-white */
+  --cream: oklch(0.955 0.014 40);          /* warm ivory */
+  --ink: oklch(0.16 0.01 60);              /* near-black warm */
+  --babypink: oklch(0.93 0.035 8);         /* warm baby pink — primary surface */
+  --babypink-strong: oklch(0.86 0.07 10);  /* slightly deeper */
+  --hotpink: oklch(0.74 0.13 5);           /* used sparingly, dusty rose */
+  --orange: oklch(0.72 0.18 45);           /* TINY accent only */
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -81,14 +87,13 @@
     color: var(--color-ink);
     font-family: var(--font-body);
   }
-  ::selection { background: var(--color-hotpink); color: white; }
+  ::selection { background: var(--color-babypink-strong); color: var(--color-ink); }
 
   body {
+    background-color: var(--color-paper);
     background-image:
-      radial-gradient(oklch(0.13 0.01 280 / 0.05) 1px, transparent 1px),
-      radial-gradient(oklch(0.13 0.01 280 / 0.03) 1px, transparent 1px);
-    background-size: 24px 24px, 6px 6px;
-    background-position: 0 0, 3px 3px;
+      radial-gradient(oklch(0.16 0.01 60 / 0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 }
 
@@ -100,20 +105,22 @@
   .font-body { font-family: var(--font-body); }
 
   .tape {
-    background: oklch(0.7 0.22 42 / 0.35);
+    background: oklch(0.86 0.07 10 / 0.55);
     background-image: repeating-linear-gradient(
-      45deg,
-      transparent 0 4px,
-      oklch(1 0 0 / 0.15) 4px 8px
+      45deg, transparent 0 4px, oklch(1 0 0 / 0.22) 4px 8px
     );
     box-shadow: 0 1px 2px oklch(0 0 0 / 0.08);
   }
   .tape-pink {
-    background: oklch(0.66 0.27 348 / 0.4);
+    background: oklch(0.86 0.07 10 / 0.55);
     background-image: repeating-linear-gradient(
-      -30deg,
-      transparent 0 4px,
-      oklch(1 0 0 / 0.18) 4px 8px
+      -30deg, transparent 0 4px, oklch(1 0 0 / 0.25) 4px 8px
+    );
+  }
+  .tape-orange {
+    background: oklch(0.72 0.18 45 / 0.35);
+    background-image: repeating-linear-gradient(
+      30deg, transparent 0 4px, oklch(1 0 0 / 0.22) 4px 8px
     );
   }
 
@@ -134,11 +141,16 @@
   }
 
   .scribble-underline {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'><path d='M2 6 Q 50 0 100 6 T 198 6' stroke='%23FF3399' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'><path d='M2 6 Q 50 0 100 6 T 198 6' stroke='%23c98aa0' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
     background-repeat: no-repeat;
     background-position: bottom left;
     background-size: 100% 0.4em;
     padding-bottom: 0.15em;
+  }
+  .font-serif { font-family: var(--font-serif); }
+  .editorial-rule {
+    border-top: 1px solid var(--color-ink);
+    border-bottom: 1px solid var(--color-ink);
   }
 
   .no-scrollbar::-webkit-scrollbar { display: none; }

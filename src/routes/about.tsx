@@ -22,15 +22,15 @@ export const Route = createFileRoute("/about")({
 const MOSAIC = [
   { label: "Mountains", note: "high & quiet", img: mosaicMountains, span: "col-span-2 row-span-2", rot: -1.5, tape: "tape" },
   { label: "Barbie + Bollywood", note: "yes, both.", img: mosaicLoves, span: "col-span-2 row-span-2", rot: 2, tape: "tape-pink" },
-  { label: "French", note: "bonjour, oui", color: "bg-hotpink text-white", span: "col-span-1 row-span-1", rot: -3 },
+  { label: "French", note: "bonjour, oui", color: "bg-babypink text-ink", span: "col-span-1 row-span-1", rot: -3 },
   { label: "Sewing", note: "i make my fits", color: "bg-cream", span: "col-span-1 row-span-1", rot: 2 },
-  { label: "Sketching", note: "in math class", color: "bg-orange text-white", span: "col-span-1 row-span-1", rot: -2 },
+  { label: "Sketching", note: "in math class", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
   { label: "Desi-core", note: "mom's saris > runway", color: "bg-ink text-paper", span: "col-span-1 row-span-2", rot: 1 },
   { label: "Mystery girl", note: "you won't get me on first read", color: "bg-cream", span: "col-span-2 row-span-1", rot: -1, hand: true },
-  { label: "Walking", note: "10k steps = therapy", color: "bg-hotpink/20", span: "col-span-1 row-span-1", rot: 3 },
-  { label: "Deserts", note: "and their silence", color: "bg-orange/15", span: "col-span-1 row-span-1", rot: -2 },
-  { label: "Loves dogs", note: "(not a dog mom though)", color: "bg-cream", span: "col-span-2 row-span-1", rot: 1.5 },
-  { label: "Movies", note: "rom-coms forever", color: "bg-hotpink/15", span: "col-span-1 row-span-1", rot: -3 },
+  { label: "Walking", note: "10k steps = therapy", color: "bg-babypink/60", span: "col-span-1 row-span-1", rot: 3 },
+  { label: "Deserts", note: "and their silence", color: "bg-cream", span: "col-span-1 row-span-1", rot: -2 },
+  { label: "Loves dogs", note: "(not a dog mom though)", color: "bg-card border border-ink/15", span: "col-span-2 row-span-1", rot: 1.5 },
+  { label: "Movies", note: "rom-coms forever", color: "bg-babypink/70", span: "col-span-1 row-span-1", rot: -3 },
   { label: "Running", note: "5am club ✿", color: "bg-ink text-paper", span: "col-span-1 row-span-1", rot: 2 },
 ];
 

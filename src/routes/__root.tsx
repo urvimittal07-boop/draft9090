@@ -10,7 +10,7 @@ import {
 import appCss from "../styles.css?url";
 
 const FONTS_HREF =
-  "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Permanent+Marker&family=Anton&family=Inter:wght@400;500;700&family=Caveat:wght@500;700&display=swap";
+  "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Permanent+Marker&family=Anton&family=Inter:wght@400;500;700&family=Caveat:wght@500;700&display=swap";
 
 function NotFoundComponent() {
   return (
