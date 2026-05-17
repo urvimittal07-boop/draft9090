@@ -31,9 +31,13 @@
 
   --color-paper: var(--paper);
   --color-ink: var(--ink);
+  --color-babypink: var(--babypink);
+  --color-babypink-strong: var(--babypink-strong);
   --color-hotpink: var(--hotpink);
   --color-orange: var(--orange);
   --color-cream: var(--cream);
+
+  --font-serif: var(--font-serif);
 
   --font-display: "Fraunces", "Playfair Display", serif;
   --font-serif: "Cormorant Garamond", "Playfair Display", serif;
