@@ -10,14 +10,15 @@ export function SectionTitle({
   accent?: string;
 }) {
   return (
-    <div className="px-6 md:px-10 mb-10">
+    <div className="px-6 md:px-10 mb-10 pt-2">
       {eyebrow && (
-        <div className="font-marker text-hotpink text-2xl -rotate-2 mb-2">{eyebrow}</div>
+        <div className="font-accent uppercase tracking-[0.35em] text-xs text-ink/60 mb-4">— {eyebrow} —</div>
       )}
-      <h1 className="font-accent uppercase tracking-tighter leading-[0.85] text-6xl md:text-8xl lg:text-9xl">
+      <h1 className="font-serif italic font-normal leading-[0.95] text-6xl md:text-8xl lg:text-9xl text-ink">
         {title}
-        {accent && <span className="block text-orange italic font-display normal-case ml-6 md:ml-16">{accent}</span>}
+        {accent && <span className="block font-display not-italic uppercase tracking-tight text-ink/90 text-4xl md:text-6xl lg:text-7xl mt-2">{accent}<span className="text-hotpink">.</span></span>}
       </h1>
+      <div className="editorial-rule mt-8 max-w-sm" />
     </div>
   );
 }
