@@ -8,6 +8,9 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
+import { EditorialCursor } from "@/components/cursor";
+import { CinematicLoader } from "@/components/loader";
+import { FloatingStickers } from "@/components/floaters";
 
 const FONTS_HREF =
   "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Permanent+Marker&family=Anton&family=Inter:wght@400;500;700&family=Caveat:wght@500;700&display=swap";
@@ -87,6 +90,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <CinematicLoader />
+      <EditorialCursor />
+      <FloatingStickers />
       <div className="min-h-screen flex flex-col">
         <TapedNav />
         <main className="flex-1 pt-28">
