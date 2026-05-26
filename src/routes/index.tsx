@@ -1,8 +1,12 @@
 import { Link } from "@tanstack/react-router";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import heroGirl from "@/assets/hero-girl.jpg";
 import mosaicMountains from "@/assets/mosaic-mountains.jpg";
+import mosaicLoves from "@/assets/mosaic-loves.jpg";
 import { createFileRoute } from "@tanstack/react-router";
 import { Scribble, Star } from "@/components/zine";
+import { Reveal, StretchText } from "@/components/reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,22 +21,31 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const yBack = useTransform(scrollYProgress, [0, 1], [0, -160]);
+  const yMid = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const yFront = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const rotateMid = useTransform(scrollYProgress, [0, 1], [0, 8]);
+
   return (
     <div className="overflow-hidden">
       {/* HERO */}
-      <section className="relative min-h-[88vh] px-6 md:px-12 py-10">
-        {/* background scraps */}
-        <div className="absolute top-10 left-6 w-44 h-56 bg-hotpink/10 -rotate-12 hidden md:block" />
-        <div className="absolute bottom-20 right-10 w-72 h-44 bg-orange/10 rotate-6 hidden md:block" />
+      <section ref={heroRef} className="relative min-h-[92vh] px-6 md:px-12 py-10">
+        {/* background scraps with parallax */}
+        <motion.div style={{ y: yBack }} className="absolute top-10 left-6 w-44 h-56 bg-hotpink/10 -rotate-12 hidden md:block" />
+        <motion.div style={{ y: yBack }} className="absolute bottom-20 right-10 w-72 h-44 bg-orange/10 rotate-6 hidden md:block" />
+        <motion.div style={{ y: yMid, rotate: rotateMid }} className="absolute top-1/3 left-1/3 w-96 h-96 rounded-full bg-babypink/40 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 relative z-10 anim-peel">
-            <div className="font-marker text-hotpink text-3xl -rotate-3 mb-3">hi, i'm —</div>
+          <motion.div style={{ y: yFront }} className="lg:col-span-7 relative z-10 anim-peel">
+            <div className="font-marker text-hotpink text-3xl -rotate-3 mb-3" data-cursor="hi">hi, i'm —</div>
             <h1 className="font-marker text-[18vw] lg:text-[11rem] leading-[0.85] text-ink">
-              ARIA<span className="text-hotpink font-display italic">.</span>
+              <StretchText>ARIA</StretchText>
+              <span className="text-hotpink font-display italic">.</span>
             </h1>
             <div className="flex flex-wrap items-center gap-4 mt-2">
-              <div className="px-4 py-2 bg-ink text-paper font-accent uppercase text-3xl md:text-5xl rotate-[-2deg] -skew-x-6">
+              <div className="px-4 py-2 bg-ink text-paper font-accent uppercase text-3xl md:text-5xl rotate-[-2deg] -skew-x-6" data-cursor-magnet>
                 Creative
               </div>
               <div className="font-display italic text-3xl md:text-5xl text-orange">
@@ -49,36 +62,74 @@ function Home() {
             <div className="flex flex-wrap gap-4 mt-8">
               <Link
                 to="/campaigns"
-                className="group relative inline-flex items-center gap-2 px-7 py-3 bg-hotpink text-white font-accent uppercase tracking-widest text-sm shadow-[6px_6px_0_0_var(--color-ink)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+                data-cursor="see"
+                className="group relative inline-flex items-center gap-2 px-7 py-3 bg-hotpink text-white font-accent uppercase tracking-widest text-sm shadow-[6px_6px_0_0_var(--color-ink)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all glow-pink"
               >
                 See the work →
               </Link>
               <Link
                 to="/about"
+                data-cursor="meet her"
                 className="inline-flex items-center gap-2 px-7 py-3 border-2 border-ink font-accent uppercase tracking-widest text-sm hover:bg-ink hover:text-paper transition-colors"
               >
                 Who is she
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          {/* hero collage */}
+          {/* draggable hero collage */}
           <div className="lg:col-span-5 relative h-[520px] lg:h-[640px]">
-            <div className="absolute top-4 left-0 w-72 h-80 paper-card p-3 rotate-[-6deg] anim-float">
+            <DraggablePiece
+              initial={{ top: 16, left: 0, rotate: -6 }}
+              className="w-72 h-80 paper-card p-3 vhs anim-float"
+              cursorLabel="drag me"
+              z={5}
+            >
               <img src={heroGirl} alt="cool girl collage portrait" width={1024} height={1280} className="w-full h-full object-cover" />
               <div className="absolute -top-3 left-8 w-20 h-6 tape-pink rotate-[10deg]" />
-            </div>
-            <div className="absolute bottom-0 right-0 w-64 h-44 paper-card p-2 rotate-[5deg]">
+            </DraggablePiece>
+
+            <DraggablePiece
+              initial={{ bottom: 0, right: 0, rotate: 5 }}
+              className="w-64 h-44 paper-card p-2 vhs"
+              cursorLabel="shuffle"
+              z={4}
+            >
               <img src={mosaicMountains} alt="desert mountains" width={1024} height={768} loading="lazy" className="w-full h-full object-cover" />
               <div className="absolute -top-3 right-6 w-20 h-6 tape rotate-[-12deg]" />
-            </div>
-            <div className="absolute top-1/2 right-8 w-28 h-28 rounded-full bg-orange grid place-items-center text-white font-accent text-xs uppercase text-center p-3 shadow-xl anim-jiggle">
+            </DraggablePiece>
+
+            <DraggablePiece
+              initial={{ top: 220, right: -20, rotate: -4 }}
+              className="w-44 h-44 paper-card p-2 vhs"
+              cursorLabel="loves"
+              z={3}
+            >
+              <img src={mosaicLoves} alt="things she loves" width={800} height={800} loading="lazy" className="w-full h-full object-cover" />
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 tape-pink rotate-[6deg]" />
+            </DraggablePiece>
+
+            <DraggablePiece
+              initial={{ top: 240, left: -30, rotate: 0 }}
+              className="w-28 h-28 rounded-full bg-orange grid place-items-center text-white font-accent text-xs uppercase text-center p-3 shadow-xl anim-jiggle"
+              cursorLabel="spin"
+              z={6}
+            >
               Heart<br />Attack<br />★ Beware
-            </div>
-            <Star className="absolute top-1/3 -left-2 w-10 h-10 text-hotpink anim-spin-slow" />
-            <Scribble className="absolute bottom-10 left-10 w-32 text-ink/40" />
+            </DraggablePiece>
+
+            <Star className="absolute top-1/3 -left-2 w-10 h-10 text-hotpink anim-spin-slow pointer-events-none" />
+            <Scribble className="absolute bottom-10 left-10 w-32 text-ink/40 pointer-events-none" />
           </div>
         </div>
+
+        {/* scroll cue */}
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6 }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 font-accent uppercase tracking-[0.4em] text-[10px] text-ink/50"
+        >
+          ↓ scroll, drag, play
+        </motion.div>
       </section>
 
       {/* TICKER */}
@@ -99,10 +150,12 @@ function Home() {
 
       {/* SECTION TEASERS */}
       <section className="px-6 md:px-12 py-24 max-w-7xl mx-auto">
-        <div className="font-marker text-orange text-2xl -rotate-2 mb-4">flip the pages →</div>
-        <h2 className="font-accent uppercase tracking-tighter text-6xl md:text-8xl leading-[0.9] mb-12">
-          What's <span className="text-hotpink">inside</span> the zine
-        </h2>
+        <Reveal>
+          <div className="font-marker text-orange text-2xl -rotate-2 mb-4">flip the pages →</div>
+          <h2 className="font-accent uppercase tracking-tighter text-6xl md:text-8xl leading-[0.9] mb-12">
+            What's <StretchText className="text-hotpink">inside</StretchText> the zine
+          </h2>
+        </Reveal>
 
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -112,24 +165,60 @@ function Home() {
             { to: "/gallery", title: "Creative gallery", note: "magazines, ad films, games, art", rotate: 2, tape: "pink" },
             { to: "/academics", title: "Academic journal", note: "the nerdy chapter", rotate: -1.5, tape: "orange" },
             { to: "/contact", title: "Say hi", note: "ily, let's collab", rotate: 1, tape: "pink" },
-          ].map((c) => (
-            <Link
-              key={c.to}
-              to={c.to}
-              className="group relative block paper-card p-6 transition-transform hover:-translate-y-2 hover:rotate-0"
-              style={{ transform: `rotate(${c.rotate}deg)` }}
-            >
-              <span
-                className={`absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-5 ${
-                  c.tape === "pink" ? "tape-pink" : c.tape === "orange" ? "tape" : "bg-ink/20"
-                } rotate-[-4deg]`}
-              />
-              <div className="font-marker text-hotpink text-lg mb-1">{c.note}</div>
-              <div className="font-accent uppercase text-3xl tracking-tight">{c.title} →</div>
-            </Link>
+          ].map((c, i) => (
+            <Reveal key={c.to} delay={i * 0.05}>
+              <Link
+                to={c.to}
+                data-cursor="open"
+                className="group relative block paper-card paper-lift p-6 glow-pink"
+                style={{ transform: `rotate(${c.rotate}deg)` }}
+              >
+                <span
+                  className={`absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-5 ${
+                    c.tape === "pink" ? "tape-pink" : c.tape === "orange" ? "tape" : "bg-ink/20"
+                  } rotate-[-4deg]`}
+                />
+                <div className="font-marker text-hotpink text-lg mb-1">{c.note}</div>
+                <div className="font-accent uppercase text-3xl tracking-tight">{c.title} →</div>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </section>
     </div>
+  );
+}
+
+function DraggablePiece({
+  children, initial, className = "", cursorLabel, z = 1,
+}: {
+  children: React.ReactNode;
+  initial: { top?: number; left?: number; right?: number; bottom?: number; rotate: number };
+  className?: string;
+  cursorLabel?: string;
+  z?: number;
+}) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  // tilt slightly while dragging
+  const rotateLive = useTransform(x, [-200, 200], [initial.rotate - 6, initial.rotate + 6]);
+  const sRot = useSpring(rotateLive, { stiffness: 120, damping: 14 });
+
+  return (
+    <motion.div
+      drag
+      dragMomentum
+      dragElastic={0.35}
+      whileDrag={{ scale: 1.05, zIndex: 30 }}
+      whileHover={{ scale: 1.02 }}
+      style={{
+        x, y, rotate: sRot, zIndex: z,
+        top: initial.top, left: initial.left, right: initial.right, bottom: initial.bottom,
+      }}
+      data-cursor={cursorLabel}
+      className={`absolute ${className}`}
+    >
+      {children}
+    </motion.div>
   );
 }
