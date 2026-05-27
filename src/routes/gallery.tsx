@@ -28,7 +28,7 @@ function GalleryPage() {
         <Reveal>
           <div className="font-accent uppercase tracking-[0.35em] text-xs text-ink/60 mb-3">— the exhibition —</div>
           <h1 className="font-serif italic font-normal leading-[0.9] text-6xl md:text-9xl">
-            <StretchText>Creative</StretchText>
+            <StretchText>THIS IS MY</StretchText>
             <span className="block font-display not-italic uppercase tracking-tight text-4xl md:text-7xl mt-2">
               gallery<span className="text-hotpink">.</span>
             </span>

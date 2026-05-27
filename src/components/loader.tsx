@@ -55,7 +55,7 @@ export function CinematicLoader() {
             >
               <div className="text-center">
                 <div className="font-marker text-7xl md:text-9xl text-ink leading-none">
-                  ARIA<span className="text-hotpink font-display italic">.</span>
+                  v<span className="text-hotpink font-display italic">.</span>
                 </div>
                 <div className="font-accent uppercase tracking-[0.4em] text-xs mt-3 text-ink/60">
                   loading the chaos
