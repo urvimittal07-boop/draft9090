@@ -21,17 +21,24 @@ export const Route = createFileRoute("/about")({
 
 const MOSAIC = [
   { label: "Mountains", note: "high & quiet", img: mosaicMountains, span: "col-span-2 row-span-2", rot: -1.5, tape: "tape" },
-  { label: "Barbie + Bollywood", note: "yes, both.", img: mosaicLoves, span: "col-span-2 row-span-2", rot: 2, tape: "tape-pink" },
+  { label: "Cinema", note: "soft corner for Bollywood, eyes on Hollywood", img: mosaicLoves, span: "col-span-2 row-span-2", rot: 2, tape: "tape-pink" },
   { label: "French", note: "bonjour, oui", color: "bg-babypink text-ink", span: "col-span-1 row-span-1", rot: -3 },
   { label: "Sewing", note: "i make my fits", color: "bg-cream", span: "col-span-1 row-span-1", rot: 2 },
   { label: "Sketching", note: "in math class", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
   { label: "Desi-core", note: "mom's saris > runway", color: "bg-ink text-paper", span: "col-span-1 row-span-2", rot: 1 },
-  { label: "Mystery girl", note: "you won't get me on first read", color: "bg-cream", span: "col-span-2 row-span-1", rot: -1, hand: true },
-  { label: "Walking", note: "10k steps = therapy", color: "bg-babypink/60", span: "col-span-1 row-span-1", rot: 3 },
-  { label: "Deserts", note: "and their silence", color: "bg-cream", span: "col-span-1 row-span-1", rot: -2 },
+  { label: "Meditation", note: "soft mind, loud world", color: "bg-cream", span: "col-span-2 row-span-1", rot: -1, hand: true },
+  { label: "Working out", note: "endorphins > everything", color: "bg-babypink/60", span: "col-span-1 row-span-1", rot: 3 },
+  { label: "Desserts", note: "tiramisu girl ✿", color: "bg-cream", span: "col-span-1 row-span-1", rot: -2 },
   { label: "Loves dogs", note: "(not a dog mom though)", color: "bg-card border border-ink/15", span: "col-span-2 row-span-1", rot: 1.5 },
-  { label: "Movies", note: "rom-coms forever", color: "bg-babypink/70", span: "col-span-1 row-span-1", rot: -3 },
-  { label: "Running", note: "5am club ✿", color: "bg-ink text-paper", span: "col-span-1 row-span-1", rot: 2 },
+  { label: "Mixed media", note: "collage > clean slate", color: "bg-babypink/70", span: "col-span-1 row-span-1", rot: -3 },
+  { label: "Dancing", note: "kitchen-floor kind", color: "bg-ink text-paper", span: "col-span-1 row-span-1", rot: 2 },
+  { label: "Music", note: "headphones glued on", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
+  { label: "Debating", note: "i will win (politely)", color: "bg-babypink", span: "col-span-1 row-span-1", rot: 3 },
+  { label: "Teaching", note: "underprivileged kids, sign language", color: "bg-ink text-paper", span: "col-span-2 row-span-1", rot: -1 },
+  { label: "Friends", note: "my whole personality", color: "bg-cream", span: "col-span-1 row-span-1", rot: 2 },
+  { label: "Fashion", note: "styling = storytelling", color: "bg-hotpink text-paper", span: "col-span-1 row-span-2", rot: -1.5 },
+  { label: "Shooting", note: "director-of-photography brain", color: "bg-card border border-ink/15", span: "col-span-2 row-span-1", rot: 1 },
+  { label: "Poetry", note: "midnight notes app", color: "bg-orange/80 text-paper", span: "col-span-1 row-span-1", rot: -3 },
 ];
 
 const TOOLS = [
