@@ -66,10 +66,7 @@ function About() {
           I am a mosaic of <span className="scribble-underline">everything</span> I've loved.
         </h1>
         <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-ink/80">
-          I'm Aria — third-year branding &amp; ad student at NMIMS, certified mountain person,
-          part-time seamstress, full-time over-thinker. I read film posters like they owe me
-          rent and I think a great campaign should feel like a really good outfit: a little
-          chaotic, a lot intentional.
+          {"\n"}
         </p>
       </section>
 
@@ -167,7 +164,7 @@ function About() {
           p.s. i don&apos;t bite (much)
         </StickyNote>
         <h3 className="font-display italic text-4xl md:text-6xl leading-tight">
-          That&apos;s me. Maximalist by nature, organized by force, romantic by choice.
+          M
         </h3>
         <Scribble className="mx-auto w-40 text-hotpink mt-6" />
       </section>
