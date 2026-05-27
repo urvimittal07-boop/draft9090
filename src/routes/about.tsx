@@ -10,9 +10,9 @@ import { Star, Scribble, StickyNote } from "@/components/zine";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — ARIA" },
+      { title: "About — i" },
       { name: "description", content: "I am a mosaic of everything I've ever loved. Tools in my bag, skills behind a locked door." },
-      { property: "og:title", content: "About — ARIA" },
+      { property: "og:title", content: "About — i" },
       { property: "og:description", content: "I am a mosaic of everything I've ever loved." },
     ],
   }),

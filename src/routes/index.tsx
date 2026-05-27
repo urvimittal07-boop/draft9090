@@ -11,7 +11,7 @@ import { Reveal, StretchText } from "@/components/reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ARIA — Creative Portfolio" },
+      { title: "u — THIS IS MY Portfolio" },
       { name: "description", content: "Brand strategist & art director. A mosaic of everything I've ever loved." },
       { property: "og:title", content: "ARIA — Creative Portfolio" },
       { property: "og:description", content: "A mosaic of everything I've ever loved." },
@@ -41,22 +41,20 @@ function Home() {
           <motion.div style={{ y: yFront }} className="lg:col-span-7 relative z-10 anim-peel">
             <div className="font-marker text-hotpink text-3xl -rotate-3 mb-3" data-cursor="hi">hi, i'm —</div>
             <h1 className="font-marker text-[18vw] lg:text-[11rem] leading-[0.85] text-ink">
-              <StretchText>ARIA</StretchText>
+              <StretchText>u</StretchText>
               <span className="text-hotpink font-display italic">.</span>
             </h1>
             <div className="flex flex-wrap items-center gap-4 mt-2">
               <div className="px-4 py-2 bg-ink text-paper font-accent uppercase text-3xl md:text-5xl rotate-[-2deg] -skew-x-6" data-cursor-magnet>
-                Creative
+                THIS IS MY
               </div>
               <div className="font-display italic text-3xl md:text-5xl text-orange">
-                portfolio &amp; chaos
+                portfolio
               </div>
             </div>
 
             <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-ink/75">
-              Brand strategist, art director, and self-appointed cool girl. I make
-              campaigns that don't put you to sleep — for brands brave enough to feel
-              something. Currently studying Branding &amp; Advertising at NMIMS.
+              I love turning ideas into experiences. Inspired by fashion, culture, cinema, mixed media, and human behavior, I create brands, campaigns, and digital worlds that people don’t just see -they feel. Currently studying Branding &amp; Advertising at NMIMS.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-8">
@@ -115,7 +113,7 @@ function Home() {
               cursorLabel="spin"
               z={6}
             >
-              Heart<br />Attack<br />★ Beware
+              MEET<br />ME<br />★
             </DraggablePiece>
 
             <Star className="absolute top-1/3 -left-2 w-10 h-10 text-hotpink anim-spin-slow pointer-events-none" />
