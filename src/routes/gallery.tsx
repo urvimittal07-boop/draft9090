@@ -8,9 +8,9 @@ import { Reveal, StretchText } from "@/components/reveal";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Creative Gallery — ARIA" },
+      { title: "THIS IS MY Gallery — i" },
       { name: "description", content: "An immersive floating exhibition: magazines, ad films, ad games, posters." },
-      { property: "og:title", content: "Creative Gallery — ARIA" },
+      { property: "og:title", content: "THIS IS MY Gallery — i" },
       { property: "og:description", content: "An interactive museum of magazines, films, games & posters." },
     ],
   }),
