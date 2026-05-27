@@ -6,7 +6,7 @@ import mosaicMountains from "@/assets/mosaic-mountains.jpg";
 import mosaicLoves from "@/assets/mosaic-loves.jpg";
 import { createFileRoute } from "@tanstack/react-router";
 import { Scribble, Star } from "@/components/zine";
-import { Reveal, StretchText } from "@/components/reveal";
+import { Reveal, StretchText, JumpyText } from "@/components/reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,21 +40,21 @@ function Home() {
         <div className="relative max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 items-center">
           <motion.div style={{ y: yFront }} className="lg:col-span-7 relative z-10 anim-peel">
             <div className="font-marker text-hotpink text-3xl -rotate-3 mb-3" data-cursor="hi">hi, i'm —</div>
-            <h1 className="font-marker text-[18vw] lg:text-[11rem] leading-[0.85] text-ink">
-              <StretchText>u</StretchText>
+            <h1 className="font-marker text-[22vw] lg:text-[12rem] leading-[0.85] text-ink">
+              <StretchText>urvi</StretchText>
               <span className="text-hotpink font-display italic">.</span>
             </h1>
             <div className="flex flex-wrap items-center gap-4 mt-2">
               <div className="px-4 py-2 bg-ink text-paper font-accent uppercase text-3xl md:text-5xl rotate-[-2deg] -skew-x-6" data-cursor-magnet>
-                THIS IS MY
+                <JumpyText>THIS IS MY</JumpyText>
               </div>
               <div className="font-display italic text-3xl md:text-5xl text-orange">
-                portfolio
+                <JumpyText>portfolio</JumpyText>
               </div>
             </div>
 
             <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-ink/75">
-              I love turning ideas into experiences. Inspired by fashion, culture, cinema, mixed media, and human behavior, I create brands, campaigns, and digital worlds that people don’t just see -they feel. Currently studying Branding &amp; Advertising at NMIMS.
+              <JumpyText>I love turning ideas into experiences. Inspired by fashion, culture, cinema, mixed media, and human behavior, I create brands, campaigns, and digital worlds that people don’t just see — they feel. Currently studying Branding &amp; Advertising at NMIMS.</JumpyText>
             </p>
 
             <div className="flex flex-wrap gap-4 mt-8">
@@ -75,21 +75,21 @@ function Home() {
             </div>
           </motion.div>
 
-          {/* draggable hero collage */}
-          <div className="lg:col-span-5 relative h-[520px] lg:h-[640px]">
+          {/* draggable hero collage — clustered top-right, contained */}
+          <div className="lg:col-span-5 relative h-[480px] lg:h-[600px] overflow-hidden">
             <DraggablePiece
-              initial={{ top: 16, left: 0, rotate: -6 }}
-              className="w-72 h-80 paper-card p-3 vhs anim-float"
+              initial={{ top: 8, right: 8, rotate: -6 }}
+              className="w-56 h-72 paper-card p-3 vhs anim-float"
               cursorLabel="drag me"
               z={5}
             >
-              <img src={heroGirl} alt="cool girl collage portrait" width={1024} height={1280} className="w-full h-full object-cover" />
+              <img src={heroGirl} alt="urvi portrait" width={1024} height={1280} className="w-full h-full object-cover" />
               <div className="absolute -top-3 left-8 w-20 h-6 tape-pink rotate-[10deg]" />
             </DraggablePiece>
 
             <DraggablePiece
-              initial={{ bottom: 0, right: 0, rotate: 5 }}
-              className="w-64 h-44 paper-card p-2 vhs"
+              initial={{ top: 200, right: 120, rotate: 6 }}
+              className="w-52 h-36 paper-card p-2 vhs"
               cursorLabel="shuffle"
               z={4}
             >
@@ -98,8 +98,8 @@ function Home() {
             </DraggablePiece>
 
             <DraggablePiece
-              initial={{ top: 220, right: -20, rotate: -4 }}
-              className="w-44 h-44 paper-card p-2 vhs"
+              initial={{ top: 320, right: 24, rotate: -3 }}
+              className="w-40 h-40 paper-card p-2 vhs"
               cursorLabel="loves"
               z={3}
             >
@@ -108,16 +108,19 @@ function Home() {
             </DraggablePiece>
 
             <DraggablePiece
-              initial={{ top: 240, left: -30, rotate: 0 }}
-              className="w-28 h-28 rounded-full bg-orange grid place-items-center text-white font-accent text-xs uppercase text-center p-3 shadow-xl anim-jiggle"
+              initial={{ top: 24, right: 220, rotate: -8 }}
+              className="w-24 h-24 rounded-full bg-orange grid place-items-center text-white font-accent text-[11px] uppercase text-center p-3 shadow-xl anim-jiggle"
               cursorLabel="spin"
               z={6}
             >
               MEET<br />ME<br />★
             </DraggablePiece>
 
-            <Star className="absolute top-1/3 -left-2 w-10 h-10 text-hotpink anim-spin-slow pointer-events-none" />
-            <Scribble className="absolute bottom-10 left-10 w-32 text-ink/40 pointer-events-none" />
+            <Star className="absolute top-4 left-4 w-8 h-8 text-hotpink anim-spin-slow pointer-events-none" />
+            <Star className="absolute top-1/2 left-2 w-6 h-6 text-orange anim-spin-slow pointer-events-none" />
+            <Star className="absolute bottom-6 left-1/3 w-7 h-7 text-hotpink pointer-events-none" />
+            <Star className="absolute bottom-24 right-2 w-5 h-5 text-ink pointer-events-none" />
+            <Scribble className="absolute bottom-10 left-10 w-28 text-ink/40 pointer-events-none" />
           </div>
         </div>
 
@@ -147,7 +150,10 @@ function Home() {
       </div>
 
       {/* SECTION TEASERS */}
-      <section className="px-6 md:px-12 py-24 max-w-7xl mx-auto">
+      <section className="relative px-6 md:px-12 py-24 max-w-7xl mx-auto">
+        <Star className="absolute top-10 right-8 w-8 h-8 text-orange anim-spin-slow pointer-events-none" />
+        <Star className="absolute top-32 left-4 w-6 h-6 text-hotpink pointer-events-none" />
+        <Star className="absolute bottom-20 right-20 w-7 h-7 text-ink pointer-events-none" />
         <Reveal>
           <div className="font-marker text-orange text-2xl -rotate-2 mb-4">flip the pages →</div>
           <h2 className="font-accent uppercase tracking-tighter text-6xl md:text-8xl leading-[0.9] mb-12">
@@ -176,8 +182,8 @@ function Home() {
                     c.tape === "pink" ? "tape-pink" : c.tape === "orange" ? "tape" : "bg-ink/20"
                   } rotate-[-4deg]`}
                 />
-                <div className="font-marker text-hotpink text-lg mb-1">{c.note}</div>
-                <div className="font-accent uppercase text-3xl tracking-tight">{c.title} →</div>
+                <div className="font-marker text-hotpink text-lg mb-1"><JumpyText>{c.note}</JumpyText></div>
+                <div className="font-accent uppercase text-3xl tracking-tight"><JumpyText>{c.title + " →"}</JumpyText></div>
               </Link>
             </Reveal>
           ))}
