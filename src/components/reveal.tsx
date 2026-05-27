@@ -34,7 +34,7 @@ export function Reveal({
   );
 }
 
-/** Hover-stretch typography. Letters expand horizontally on pointer enter. */
+/** Hover-stretch typography. Letters jump/wiggle on pointer enter. */
 export function StretchText({
   children,
   className = "",
@@ -48,12 +48,43 @@ export function StretchText({
         <motion.span
           key={i}
           className="inline-block origin-bottom"
-          whileHover={{ scaleY: 1.25, scaleX: 0.85, color: "oklch(0.74 0.13 5)" }}
-          transition={{ type: "spring", stiffness: 380, damping: 14 }}
+          whileHover={{ y: -12, rotate: [-6, 6, -3, 0], scale: 1.15, color: "oklch(0.74 0.13 5)" }}
+          transition={{ type: "spring", stiffness: 500, damping: 10 }}
         >
           {ch === " " ? "\u00A0" : ch}
         </motion.span>
       ))}
     </span>
+  );
+}
+
+/** Every word jumps individually on hover. Use for body / headings to add play. */
+export function JumpyText({
+  children,
+  className = "",
+  as: As = "span",
+}: {
+  children: string;
+  className?: string;
+  as?: "span" | "p" | "h2" | "h3" | "div";
+}) {
+  const words = children.split(/(\s+)/);
+  return (
+    <As className={className}>
+      {words.map((w, i) =>
+        /\s+/.test(w) ? (
+          <span key={i}>{w}</span>
+        ) : (
+          <motion.span
+            key={i}
+            className="inline-block"
+            whileHover={{ y: -8, rotate: [-4, 4, 0], color: "oklch(0.74 0.13 5)" }}
+            transition={{ type: "spring", stiffness: 480, damping: 12 }}
+          >
+            {w}
+          </motion.span>
+        )
+      )}
+    </As>
   );
 }
