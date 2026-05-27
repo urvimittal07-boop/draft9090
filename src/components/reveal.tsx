@@ -48,8 +48,8 @@ export function StretchText({
         <motion.span
           key={i}
           className="inline-block origin-bottom"
-          whileHover={{ y: -12, rotate: [-6, 6, -3, 0], scale: 1.15, color: "oklch(0.74 0.13 5)" }}
-          transition={{ type: "spring", stiffness: 500, damping: 10 }}
+          whileHover={{ y: -12, rotate: [0, -6, 6, -3, 0], scale: 1.15, color: "oklch(0.74 0.13 5)" }}
+          transition={{ y: { type: "spring", stiffness: 500, damping: 10 }, rotate: { duration: 0.5, ease: "easeInOut" }, scale: { type: "spring", stiffness: 500, damping: 10 } }}
         >
           {ch === " " ? "\u00A0" : ch}
         </motion.span>
@@ -78,8 +78,8 @@ export function JumpyText({
           <motion.span
             key={i}
             className="inline-block"
-            whileHover={{ y: -8, rotate: [-4, 4, 0], color: "oklch(0.74 0.13 5)" }}
-            transition={{ type: "spring", stiffness: 480, damping: 12 }}
+            whileHover={{ y: -8, rotate: [0, -4, 4, 0], color: "oklch(0.74 0.13 5)" }}
+            transition={{ y: { type: "spring", stiffness: 480, damping: 12 }, rotate: { duration: 0.4, ease: "easeInOut" } }}
           >
             {w}
           </motion.span>
