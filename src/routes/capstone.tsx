@@ -7,9 +7,9 @@ import { SectionTitle } from "@/components/zine";
 export const Route = createFileRoute("/capstone")({
   head: () => ({
     meta: [
-      { title: "Capstone Projects — ARIA" },
+      { title: "Capstone Projects — URVI" },
       { name: "description", content: "Six capstone projects — open each to read the brief, process, outcome." },
-      { property: "og:title", content: "Capstone Projects — ARIA" },
+      { property: "og:title", content: "Capstone Projects — URVI" },
       { property: "og:description", content: "Six real-world capstone projects." },
     ],
   }),

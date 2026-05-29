@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
- * Cinematic intro: collage pieces fly in from edges and assemble into "ARIA"
+ * Cinematic intro: collage pieces fly in from edges and assemble into "URVI"
  * before peeling off the screen. Shows once per session.
  */
 export function CinematicLoader() {
@@ -10,11 +10,11 @@ export function CinematicLoader() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("aria-intro-played")) return;
+    if (sessionStorage.getItem("urvi-intro-played")) return;
     setShow(true);
     const t = setTimeout(() => {
       setShow(false);
-      sessionStorage.setItem("aria-intro-played", "1");
+      sessionStorage.setItem("urvi-intro-played", "1");
     }, 2400);
     return () => clearTimeout(t);
   }, []);

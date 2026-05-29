@@ -150,8 +150,8 @@ function SiteFooter() {
   return (
     <footer className="mt-24 border-t-2 border-ink/10 bg-card overflow-hidden">
       <div className="anim-marquee flex whitespace-nowrap gap-12 font-accent text-[10rem] leading-none uppercase tracking-tighter text-ink/[0.06] py-6">
-        <span>ARIA &nbsp;★&nbsp; MOSAIC &nbsp;★&nbsp; MAXIMALIST &nbsp;★&nbsp; COOL GIRL &nbsp;★&nbsp;</span>
-        <span>ARIA &nbsp;★&nbsp; MOSAIC &nbsp;★&nbsp; MAXIMALIST &nbsp;★&nbsp; COOL GIRL &nbsp;★&nbsp;</span>
+        <span>URVI &nbsp;★&nbsp; MOSAIC &nbsp;★&nbsp; MAXIMALIST &nbsp;★&nbsp; VISIONARY &nbsp;★&nbsp;</span>
+        <span>URVI &nbsp;★&nbsp; MOSAIC &nbsp;★&nbsp; MAXIMALIST &nbsp;★&nbsp; VISIONARY &nbsp;★&nbsp;</span>
       </div>
       <div className="px-8 pb-10 flex flex-wrap justify-between items-end gap-4">
         <div className="font-marker text-xl">Mumbai • NMIMS • {new Date().getFullYear()}</div>

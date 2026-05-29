@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "u — THIS IS MY Portfolio" },
       { name: "description", content: "Brand strategist & art director. A mosaic of everything I've ever loved." },
-      { property: "og:title", content: "ARIA — Creative Portfolio" },
+      { property: "og:title", content: "URVI — Creative Portfolio" },
       { property: "og:description", content: "A mosaic of everything I've ever loved." },
     ],
   }),
