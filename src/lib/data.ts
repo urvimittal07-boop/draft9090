@@ -5,132 +5,79 @@ export type Campaign = {
   client: string;
   tags: string[];
   accent: "hotpink" | "orange" | "ink";
-  problem: string;
-  insight: string;
-  strategy: string;
-  creatives: { title: string; note: string }[];
-  outcome: string;
+  // Drop an MP4 export of your animated deck at /public/decks/<slug>.mp4
+  // (PowerPoint → File → Export → Create a Video). Or set `embed` to a
+  // Canva/Google Slides embed URL to use an iframe instead.
+  deck?: {
+    video?: string;
+    embed?: string;
+    poster?: string;
+  };
 };
 
 export const CAMPAIGNS: Campaign[] = [
   {
-    slug: "eau-de-orange",
-    title: "EAU DE ORANGE",
-    tagline: "A perfume for people who refuse to be subtle.",
-    client: "Maison Citra (hypothetical)",
-    tags: ["Brand Strategy", "Art Direction", "Copywriting"],
+    slug: "upwind",
+    title: "UPWIND",
+    tagline: "A brand that moves before the room does.",
+    client: "Upwind",
+    tags: ["Brand Strategy", "Campaign", "Art Direction"],
     accent: "orange",
-    problem: "Luxury perfume marketing has flattened into the same beige whisper. Every brand is selling 'effortless,' nobody is selling effort.",
-    insight: "Gen-Z women aren't afraid of being too much — they're afraid of being forgettable. Loudness has become the new luxury.",
-    strategy: "Build a fragrance brand around unapologetic personality. Editorial campaign in citrus-saturated colour blocking, with bottle drops styled as zines, not catalogues.",
-    creatives: [
-      { title: "Hero film", note: "30-second short of a girl walking into a room and silencing it." },
-      { title: "OOH series", note: "Five typographic billboards — one word each: PEEL. SPLASH. STING. LINGER. RUIN." },
-      { title: "Sampling zine", note: "16-page fold-out with a scratch-and-sniff cover." },
-    ],
-    outcome: "Concept brief; pitched as semester capstone — A+ grade.",
+    deck: { video: "/decks/upwind.mp4" },
   },
   {
-    slug: "volt-surge",
-    title: "VOLT SURGE",
-    tagline: "Energy drink that doesn't taste like regret.",
-    client: "Volt Co. (hypothetical)",
-    tags: ["Campaign", "Packaging", "Social"],
+    slug: "dabur",
+    title: "DABUR",
+    tagline: "Heritage, re-cast for the right-now generation.",
+    client: "Dabur",
+    tags: ["Campaign", "Strategy", "Copywriting"],
     accent: "hotpink",
-    problem: "Energy-drink branding is stuck in 2008 — extreme sports, screaming type, neon. Their actual buyer is a 22-year-old designer at 11pm.",
-    insight: "We don't want to be 'extreme.' We want to finish the deck without crashing at 2am.",
-    strategy: "Reposition Volt as the calm-focus drink: spa packaging, slow-mo social, ASMR product films. Energy without the anxiety.",
-    creatives: [
-      { title: "Pack redesign", note: "Matte pastel cans with embossed wordmark." },
-      { title: "Series of 6 posters", note: "Each is a single sentence — 'still awake. still chill.'" },
-      { title: "Sleep playlist drop", note: "Co-branded Spotify playlist for the after-rush." },
-    ],
-    outcome: "Top-3 in NMIMS internal pitch competition.",
+    deck: { video: "/decks/dabur.mp4" },
   },
   {
-    slug: "step-luxe",
-    title: "STEP LUXE",
-    tagline: "Streetwear treated like sculpture.",
-    client: "Step Atelier",
-    tags: ["Brand Identity", "Editorial", "Film"],
+    slug: "lunara",
+    title: "LUNARA",
+    tagline: "Soft brand, sharp point of view.",
+    client: "Lunara",
+    tags: ["Brand Identity", "Editorial", "Strategy"],
     accent: "ink",
-    problem: "Sneaker brands all use the same drop-cycle hype playbook. Saturation has killed scarcity.",
-    insight: "If you want hype to mean something, treat the product like it's behind glass — not behind a queue.",
-    strategy: "Position Step Luxe as a gallery. Drops are openings. Lookbooks read like exhibition catalogues. No countdowns, no resellers.",
-    creatives: [
-      { title: "Exhibition launch", note: "Pop-up at JJ School of Art, 1 sneaker per pedestal." },
-      { title: "Catalogue", note: "Heavy-stock A4 booklet, museum captions, no prices." },
-      { title: "Microsite", note: "Scroll-to-zoom interaction, no add-to-cart." },
-    ],
-    outcome: "Concept pitched at IIT Bombay E-Summit — finalist.",
+    deck: { video: "/decks/lunara.mp4" },
   },
   {
-    slug: "desi-collective",
-    title: "THE DESI COLLECTIVE",
-    tagline: "A magazine for the diaspora that refuses to translate.",
-    client: "Desi Co. (hypothetical)",
-    tags: ["Editorial", "Art Direction", "Strategy"],
+    slug: "preganews",
+    title: "PREGANEWS",
+    tagline: "A test, told like a story.",
+    client: "Preganews",
+    tags: ["Campaign", "Insight", "Film"],
     accent: "hotpink",
-    problem: "South Asian fashion media either over-explains itself for a Western reader or shrinks itself for a 'safe' Indian one. Nobody is just talking to us.",
-    insight: "We don't want representation. We want our inside jokes printed at 200gsm.",
-    strategy: "An unapologetic quarterly: Hindi/English code-switching headlines, no glossary, no footnotes. Designed for the girl with both a sari and Doc Martens.",
-    creatives: [
-      { title: "Issue 01 cover", note: "Bollywood B-grade poster meets Vogue grid." },
-      { title: "Editorial spreads", note: "12 layouts, each in a different vernacular display face." },
-      { title: "Launch campaign", note: "Subway posters in Marathi, Tamil, Punjabi — no translation." },
-    ],
-    outcome: "Self-published zine pilot — 200 copies distributed.",
+    deck: { video: "/decks/preganews.mp4" },
   },
   {
-    slug: "fairmont-eternal",
-    title: "FAIRMONT: ETERNAL GUEST",
-    tagline: "Luxury hospitality told as a love letter.",
-    client: "Fairmont (research study)",
-    tags: ["Campaign", "Research", "Storytelling"],
+    slug: "vibemate",
+    title: "VIBE MATE",
+    tagline: "Friendship, productised — without the cringe.",
+    client: "Vibe Mate",
+    tags: ["Brand", "Digital", "Social"],
     accent: "orange",
-    problem: "Heritage hotels are losing 25–35 year-olds to design hotels with personality. Fairmont reads as 'parents' vacation.'",
-    insight: "We don't crave anonymity — we crave being remembered. The fantasy isn't a new room, it's a returning welcome.",
-    strategy: "Reframe Fairmont's heritage as relationship, not legacy. Campaign films cast real returning guests as the heroes of the brand.",
-    creatives: [
-      { title: "Documentary series", note: "5 short films, each a guest's return story." },
-      { title: "Print", note: "A folded letter, addressed to you, found in your room." },
-      { title: "Loyalty rebrand", note: "From 'points' to 'chapters.'" },
-    ],
-    outcome: "Submitted as published research paper at NMIMS, 2024.",
+    deck: { video: "/decks/vibemate.mp4" },
   },
   {
-    slug: "salt-tech",
-    title: "SALT TECH",
-    tagline: "Make technology feel essential again.",
-    client: "Salt Tech (research study)",
-    tags: ["Identity", "Strategy", "Editorial"],
+    slug: "salttree",
+    title: "SALT TREE",
+    tagline: "An earthy brand that doesn't whisper.",
+    client: "Salt Tree",
+    tags: ["Identity", "Packaging", "Strategy"],
     accent: "ink",
-    problem: "B2B tech branding has become indistinguishable — same gradient, same lowercase wordmark, same astronaut illustrations.",
-    insight: "Software has become so generic it feels disposable. People miss tools that feel like objects.",
-    strategy: "Brand Salt Tech as an object brand, not a SaaS. Tactile identity, mineral-inspired palette, packaging-grade collateral, zero illustrations.",
-    creatives: [
-      { title: "Identity system", note: "Mineral colour deck, embossed wordmark, no gradients." },
-      { title: "Brand book", note: "32-page printed manifesto on uncoated stock." },
-      { title: "Launch site", note: "Single-page, no scroll, no animation." },
-    ],
-    outcome: "Capstone research, 9.4/10 jury score.",
+    deck: { video: "/decks/salttree.mp4" },
   },
   {
-    slug: "zara-studio",
-    title: "ZARA STUDIO: GHOST DROPS",
-    tagline: "Bring scarcity back to fast fashion.",
-    client: "Zara (research study)",
-    tags: ["Strategy", "Campaign", "Digital"],
+    slug: "amchi-events",
+    title: "AMCHI EVENTS",
+    tagline: "Mumbai's loudest event brand, dressed up.",
+    client: "Amchi Events",
+    tags: ["Brand Identity", "Event", "Campaign"],
     accent: "hotpink",
-    problem: "Zara's Studio sub-line is premium but reads as 'just another collection.' Its exclusivity is invisible in the noise of the main brand.",
-    insight: "Premium isn't a price tag — it's the right to not be available.",
-    strategy: "Run Zara Studio as a series of 'ghost drops': unannounced, in 3 cities, for 3 days only. Find it via word-of-mouth and a single Instagram pin.",
-    creatives: [
-      { title: "Drop mechanic", note: "3 stealth pop-ups, 72-hour windows, no media buy." },
-      { title: "One pinned post", note: "A single Story per drop. No grid, no influencer seeding." },
-      { title: "Studio Letter", note: "Print mailer to top-tier loyalty list — handwritten font, wax seal." },
-    ],
-    outcome: "Featured in NMIMS Brand Strategy showcase, semester 5.",
+    deck: { video: "/decks/amchi-events.mp4" },
   },
 ];
 
