@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import mosaicLoves from "@/assets/mosaic-loves.jpg";
 import mosaicMountains from "@/assets/mosaic-mountains.jpg";
