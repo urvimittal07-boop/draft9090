@@ -6,9 +6,9 @@ import { SectionTitle } from "@/components/zine";
 export const Route = createFileRoute("/academics")({
   head: () => ({
     meta: [
-      { title: "Academics — ARIA" },
+      { title: "Academics — URVI" },
       { name: "description", content: "A roadmap: DPS · NMIMS B.Sc. Branding & Advertising · IIM-A · IIT-B · research & leadership." },
-      { property: "og:title", content: "Academics — ARIA" },
+      { property: "og:title", content: "Academics — URVI" },
       { property: "og:description", content: "The academic roadmap — chapter by chapter." },
     ],
   }),

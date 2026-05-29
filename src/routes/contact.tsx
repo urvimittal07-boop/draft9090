@@ -4,9 +4,9 @@ import { Star } from "@/components/zine";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — ARIA" },
+      { title: "Contact — URVI" },
       { name: "description", content: "Pitch me, hire me, download the resume." },
-      { property: "og:title", content: "Contact — ARIA" },
+      { property: "og:title", content: "Contact — URVI" },
       { property: "og:description", content: "Pitch me, hire me, download the resume." },
     ],
   }),
@@ -44,7 +44,7 @@ function Contact() {
           <div className="flex flex-wrap gap-3 mt-6">
             <a
               href="/resume.pdf"
-              download="Aria-Resume.pdf"
+              download="Urvi-Resume.pdf"
               className="inline-flex items-center gap-2 bg-paper text-ink font-accent uppercase tracking-widest text-xs px-5 py-3 hover:bg-hotpink hover:text-paper transition-colors"
             >
               ↓ Download Resume (PDF)

@@ -7,9 +7,9 @@ import { SectionTitle } from "@/components/zine";
 export const Route = createFileRoute("/campaigns")({
   head: () => ({
     meta: [
-      { title: "Brand Campaigns — ARIA" },
+      { title: "Brand Campaigns — URVI" },
       { name: "description", content: "Seven brand campaigns. Click any title to play the animated deck in fullscreen." },
-      { property: "og:title", content: "Brand Campaigns — ARIA" },
+      { property: "og:title", content: "Brand Campaigns — URVI" },
       { property: "og:description", content: "Seven animated campaign decks, played inside the portfolio." },
     ],
   }),
