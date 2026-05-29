@@ -41,12 +41,9 @@ function GalleryPage() {
         </Reveal>
       </section>
 
-      {/* THE EXHIBITION FLOOR */}
-      <section className="relative grain-bg border-y-2 border-ink min-h-[760px] overflow-hidden">
-        {/* spotlight */}
+      {/* THE EXHIBITION FLOOR — desktop free-scatter */}
+      <section className="hidden md:block relative grain-bg border-y-2 border-ink min-h-[760px] overflow-hidden">
         <Spotlight />
-
-        {/* room signs */}
         <div className="absolute inset-0 pointer-events-none">
           {["NORTH WING", "EAST WING", "SOUTH WING", "WEST WING"].map((t, i) => (
             <div
@@ -66,6 +63,49 @@ function GalleryPage() {
 
         <FloatingExhibition galleries={GALLERIES} onOpen={setOpen} />
       </section>
+
+      {/* MOBILE — stacked rooms, no overflow */}
+      <section className="md:hidden grain-bg border-y-2 border-ink px-4 py-8 space-y-10">
+        {GALLERIES.map((g, gi) => (
+          <div key={g.slug} className="relative">
+            <button
+              onClick={() => setOpen(g)}
+              className="block w-full text-left mb-4"
+            >
+              <div className="font-marker text-hotpink text-sm -rotate-2 mb-1">
+                room {String(gi + 1).padStart(2, "0")} →
+              </div>
+              <div className="font-accent uppercase text-3xl leading-none tracking-tight">
+                {g.title}
+              </div>
+              <div className="font-display italic text-sm text-ink/60 mt-1">{g.subtitle}</div>
+            </button>
+            <div className="grid grid-cols-2 gap-3">
+              {g.items.slice(0, 4).map((item, ii) => (
+                <motion.button
+                  key={ii}
+                  whileTap={{ scale: 0.96 }}
+                  onClick={() => setOpen(g)}
+                  style={{ transform: `rotate(${ii % 2 === 0 ? -1.5 : 1.5}deg)` }}
+                  className="paper-card paper-lift p-2 text-left"
+                >
+                  <div className={`relative w-full aspect-[3/4] ${g.color} grid place-items-center overflow-hidden vhs`}>
+                    <Star className="w-7 h-7 text-white/80" />
+                    <div className="absolute bottom-1.5 left-1.5 font-accent uppercase text-[9px] tracking-widest text-white/80">
+                      {item.tag}
+                    </div>
+                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 w-12 h-3 tape-pink rotate-[-6deg]" />
+                  </div>
+                  <div className="pt-1.5">
+                    <div className="font-display italic text-xs leading-tight line-clamp-2">{item.title}</div>
+                  </div>
+                </motion.button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
 
       <p className="px-6 md:px-10 py-10 max-w-[60ch] text-sm font-marker text-ink/60">
         psst — every piece is draggable. shuffle the room however you like.
