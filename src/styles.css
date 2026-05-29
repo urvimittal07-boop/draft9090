@@ -88,6 +88,12 @@
     font-family: var(--font-body);
   }
   html { scroll-behavior: smooth; }
+  /* Prevent horizontal scroll across the whole site on mobile */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  /* Sharper rendering for small raster images on mobile */
+  @media (max-width: 768px) {
+    img { image-rendering: -webkit-optimize-contrast; }
+  }
   ::selection { background: var(--color-babypink-strong); color: var(--color-ink); }
 
   body {
@@ -102,6 +108,7 @@
     html.cursor-none-root * { cursor: none !important; }
   }
 }
+
 
 @layer utilities {
   .font-display { font-family: var(--font-display); }
