@@ -71,10 +71,10 @@ function Contact() {
       {/* CHANNELS */}
       <div className="mt-12 editorial-rule pt-4">
         {[
-          { label: "Email", value: "hello@aria.world", href: "mailto:hello@aria.world" },
-          { label: "Instagram", value: "@aria.world", href: "https://instagram.com" },
-          { label: "LinkedIn", value: "/in/aria", href: "https://linkedin.com" },
-          { label: "Behance", value: "/aria", href: "https://behance.net" },
+          { label: "Email", value: "hello@urvi.world", href: "mailto:hello@urvi.world" },
+          { label: "Instagram", value: "@urvi.world", href: "https://instagram.com" },
+          { label: "LinkedIn", value: "/in/urvi", href: "https://linkedin.com" },
+          { label: "Behance", value: "/urvi", href: "https://behance.net" },
         ].map((c) => (
           <a key={c.label} href={c.href} target={c.href.startsWith("mailto") ? undefined : "_blank"} rel="noreferrer"
              className="group grid grid-cols-12 gap-4 py-5 border-b border-ink/15 hover:bg-babypink/40 px-2 transition-colors">
