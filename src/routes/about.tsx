@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import mosaicLoves from "@/assets/mosaic-loves.jpg";
 import mosaicMountains from "@/assets/mosaic-mountains.jpg";
@@ -20,26 +20,28 @@ export const Route = createFileRoute("/about")({
 });
 
 const MOSAIC = [
+  { label: "Cinema", note: "the everything religion", img: mosaicLoves, span: "col-span-2 row-span-2", rot: 2, tape: "tape-pink" },
   { label: "Mountains", note: "high & quiet", img: mosaicMountains, span: "col-span-2 row-span-2", rot: -1.5, tape: "tape" },
-  { label: "Cinema", note: "soft corner for Bollywood, eyes on Hollywood", img: mosaicLoves, span: "col-span-2 row-span-2", rot: 2, tape: "tape-pink" },
-  { label: "French", note: "bonjour, oui", color: "bg-babypink text-ink", span: "col-span-1 row-span-1", rot: -3 },
-  { label: "Sewing", note: "i make my fits", color: "bg-cream", span: "col-span-1 row-span-1", rot: 2 },
-  { label: "Sketching", note: "in math class", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
-  { label: "Desi-core", note: "mom's saris > runway", color: "bg-ink text-paper", span: "col-span-1 row-span-2", rot: 1 },
-  { label: "Meditation", note: "soft mind, loud world", color: "bg-cream", span: "col-span-2 row-span-1", rot: -1, hand: true },
-  { label: "Working out", note: "endorphins > everything", color: "bg-babypink/60", span: "col-span-1 row-span-1", rot: 3 },
+  { label: "Bollywood", note: "soft corner, loud songs", color: "bg-hotpink text-paper", span: "col-span-2 row-span-1", rot: -1 },
   { label: "Desserts", note: "tiramisu girl ✿", color: "bg-cream", span: "col-span-1 row-span-1", rot: -2 },
-  { label: "Loves dogs", note: "(not a dog mom though)", color: "bg-card border border-ink/15", span: "col-span-2 row-span-1", rot: 1.5 },
-  { label: "Mixed media", note: "collage > clean slate", color: "bg-babypink/70", span: "col-span-1 row-span-1", rot: -3 },
-  { label: "Dancing", note: "kitchen-floor kind", color: "bg-ink text-paper", span: "col-span-1 row-span-1", rot: 2 },
-  { label: "Music", note: "headphones glued on", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
-  { label: "Debating", note: "i will win (politely)", color: "bg-babypink", span: "col-span-1 row-span-1", rot: 3 },
-  { label: "Teaching", note: "underprivileged kids, sign language", color: "bg-ink text-paper", span: "col-span-2 row-span-1", rot: -1 },
-  { label: "Friends", note: "my whole personality", color: "bg-cream", span: "col-span-1 row-span-1", rot: 2 },
-  { label: "Fashion", note: "styling = storytelling", color: "bg-hotpink text-paper", span: "col-span-1 row-span-2", rot: -1.5 },
-  { label: "Shooting", note: "director-of-photography brain", color: "bg-card border border-ink/15", span: "col-span-2 row-span-1", rot: 1 },
+  { label: "Dogs", note: "every single one", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: 2 },
+  { label: "Swimming", note: "lap-after-lap brain", color: "bg-babypink/70", span: "col-span-1 row-span-1", rot: -3 },
+  { label: "Running", note: "morning miles", color: "bg-babypink", span: "col-span-1 row-span-1", rot: 3 },
+  { label: "Mixed media", note: "collage > clean slate", color: "bg-babypink/60", span: "col-span-2 row-span-1", rot: 1.5 },
+  { label: "Sketching", note: "in math class", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
+  { label: "Styling", note: "fits = storytelling", color: "bg-ink text-paper", span: "col-span-1 row-span-2", rot: 1 },
+  { label: "Sewing", note: "i make my fits", color: "bg-cream", span: "col-span-1 row-span-1", rot: 2 },
+  { label: "Meditation", note: "soft mind, loud world", color: "bg-cream", span: "col-span-2 row-span-1", rot: -1, hand: true },
   { label: "Poetry", note: "midnight notes app", color: "bg-orange/80 text-paper", span: "col-span-1 row-span-1", rot: -3 },
+  { label: "Substack", note: "newsletters i live in", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: 2 },
+  { label: "Music", note: "headphones glued on", color: "bg-ink text-paper", span: "col-span-2 row-span-1", rot: -2 },
+  { label: "Food", note: "tasting menu of life", color: "bg-cream", span: "col-span-1 row-span-1", rot: 3 },
+  { label: "Languages & culture", note: "english · français · हिन्दी · मारवाड़ी · नेपाली · বাংলা", color: "bg-hotpink text-paper", span: "col-span-2 row-span-1", rot: -1 },
+  { label: "Debating", note: "i will win (politely)", color: "bg-babypink", span: "col-span-1 row-span-1", rot: 3 },
+  { label: "Social groups", note: "rooms full of people", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
+  { label: "Hosting", note: "a table, candles, chaos", color: "bg-ink text-paper", span: "col-span-2 row-span-1", rot: 1 },
 ];
+
 
 const TOOLS = [
   { name: "Photoshop", abbr: "Ps", color: "bg-[#001E36] text-[#31A8FF]" },
@@ -86,7 +88,7 @@ function About() {
           <div className="font-marker text-orange text-xl -rotate-3 hidden md:block">a wall of me ✿</div>
         </div>
 
-        <div className="grid grid-cols-4 md:grid-cols-6 auto-rows-[120px] md:auto-rows-[140px] gap-3">
+        <div className="grid grid-cols-4 md:grid-cols-6 auto-rows-[90px] sm:auto-rows-[110px] md:auto-rows-[140px] gap-2 sm:gap-3">
           {MOSAIC.map((m, i) => (
             <motion.div
               key={i}
@@ -99,12 +101,13 @@ function About() {
               )}
               <div className={`absolute -top-2 left-4 w-16 h-4 ${m.tape ?? "tape-pink"} rotate-[-6deg]`} />
               <div className="absolute inset-0 p-3 flex flex-col justify-end">
-                <div className={`${m.hand ? "font-hand text-3xl" : "font-accent uppercase text-sm tracking-widest"}`}>
+                <div className={`${m.hand ? "font-hand text-2xl sm:text-3xl" : "font-accent uppercase text-[11px] sm:text-sm tracking-widest leading-tight"}`}>
                   {m.label}
                 </div>
-                <div className={`text-xs mt-1 ${m.img ? "bg-card/90 inline-block px-1.5 py-0.5 w-fit font-hand text-base text-ink" : "opacity-80"}`}>
+                <div className={`text-[10px] sm:text-xs mt-1 ${m.img ? "bg-card/90 inline-block px-1.5 py-0.5 w-fit font-hand text-sm sm:text-base text-ink" : "opacity-80"}`}>
                   {m.note}
                 </div>
+
               </div>
             </motion.div>
           ))}
@@ -181,16 +184,35 @@ function About() {
 
 function Handbag() {
   const [open, setOpen] = useState(false);
+  // measure container so the spill radius always fits the visible frame on mobile
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [box, setBox] = useState({ w: 600, h: 600 });
+  useEffect(() => {
+    if (!wrapRef.current) return;
+    const ro = new ResizeObserver(([entry]) => {
+      const r = entry.contentRect;
+      setBox({ w: r.width, h: r.height });
+    });
+    ro.observe(wrapRef.current);
+    return () => ro.disconnect();
+  }, []);
+
+  // tool tile size scales down on tiny screens
+  const tile = box.w < 380 ? 64 : box.w < 520 ? 80 : 96;
+  // keep tools fully inside the container — leave half a tile of padding
+  const margin = tile / 2 + 12;
+  const radiusX = Math.max(80, box.w / 2 - margin);
+  const radiusY = Math.max(80, box.h / 2 - margin - 20);
+
   return (
-    <div className="relative max-w-3xl mx-auto h-[560px] md:h-[620px]">
+    <div ref={wrapRef} className="relative w-full max-w-3xl mx-auto h-[460px] sm:h-[560px] md:h-[620px] overflow-hidden">
       {/* tools fly out */}
       <AnimatePresence>
         {open &&
           TOOLS.map((t, i) => {
             const angle = (i / TOOLS.length) * Math.PI * 2;
-            const radius = 220;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius * 0.7 - 40;
+            const x = Math.cos(angle) * radiusX;
+            const y = Math.sin(angle) * radiusY - 20;
             return (
               <motion.div
                 key={t.name}
@@ -200,10 +222,13 @@ function Handbag() {
                 transition={{ type: "spring", stiffness: 120, damping: 14, delay: i * 0.04 }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
               >
-                <div className={`w-24 h-24 grid place-items-center font-accent text-2xl paper-card ${t.color}`}>
+                <div
+                  style={{ width: tile, height: tile }}
+                  className={`grid place-items-center font-accent text-xl sm:text-2xl paper-card ${t.color}`}
+                >
                   {t.abbr}
                 </div>
-                <div className="text-center font-marker text-sm mt-2">{t.name}</div>
+                <div className="text-center font-marker text-xs sm:text-sm mt-1.5">{t.name}</div>
               </motion.div>
             );
           })}
@@ -222,15 +247,16 @@ function Handbag() {
           height={400}
           animate={{ rotate: open ? -4 : 0, scale: open ? 0.85 : 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 18 }}
-          className="w-72 h-72 md:w-96 md:h-96 object-contain drop-shadow-2xl group-hover:scale-105 transition-transform"
+          className="w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 object-contain drop-shadow-2xl group-hover:scale-105 transition-transform"
         />
-        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 font-marker text-hotpink text-xl whitespace-nowrap">
+        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 font-marker text-hotpink text-lg sm:text-xl whitespace-nowrap">
           {open ? "← put it back" : "tap to spill →"}
         </div>
       </button>
     </div>
   );
 }
+
 
 function SkillDoor() {
   const [open, setOpen] = useState(false);

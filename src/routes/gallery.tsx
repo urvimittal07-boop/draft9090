@@ -41,12 +41,9 @@ function GalleryPage() {
         </Reveal>
       </section>
 
-      {/* THE EXHIBITION FLOOR */}
-      <section className="relative grain-bg border-y-2 border-ink min-h-[760px] overflow-hidden">
-        {/* spotlight */}
+      {/* THE EXHIBITION FLOOR — desktop free-scatter */}
+      <section className="hidden md:block relative grain-bg border-y-2 border-ink min-h-[760px] overflow-hidden">
         <Spotlight />
-
-        {/* room signs */}
         <div className="absolute inset-0 pointer-events-none">
           {["NORTH WING", "EAST WING", "SOUTH WING", "WEST WING"].map((t, i) => (
             <div
@@ -66,6 +63,49 @@ function GalleryPage() {
 
         <FloatingExhibition galleries={GALLERIES} onOpen={setOpen} />
       </section>
+
+      {/* MOBILE — stacked rooms, no overflow */}
+      <section className="md:hidden grain-bg border-y-2 border-ink px-4 py-8 space-y-10">
+        {GALLERIES.map((g, gi) => (
+          <div key={g.slug} className="relative">
+            <button
+              onClick={() => setOpen(g)}
+              className="block w-full text-left mb-4"
+            >
+              <div className="font-marker text-hotpink text-sm -rotate-2 mb-1">
+                room {String(gi + 1).padStart(2, "0")} →
+              </div>
+              <div className="font-accent uppercase text-3xl leading-none tracking-tight">
+                {g.title}
+              </div>
+              <div className="font-display italic text-sm text-ink/60 mt-1">{g.subtitle}</div>
+            </button>
+            <div className="grid grid-cols-2 gap-3">
+              {g.items.slice(0, 4).map((item, ii) => (
+                <motion.button
+                  key={ii}
+                  whileTap={{ scale: 0.96 }}
+                  onClick={() => setOpen(g)}
+                  style={{ transform: `rotate(${ii % 2 === 0 ? -1.5 : 1.5}deg)` }}
+                  className="paper-card paper-lift p-2 text-left"
+                >
+                  <div className={`relative w-full aspect-[3/4] ${g.color} grid place-items-center overflow-hidden vhs`}>
+                    <Star className="w-7 h-7 text-white/80" />
+                    <div className="absolute bottom-1.5 left-1.5 font-accent uppercase text-[9px] tracking-widest text-white/80">
+                      {item.tag}
+                    </div>
+                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 w-12 h-3 tape-pink rotate-[-6deg]" />
+                  </div>
+                  <div className="pt-1.5">
+                    <div className="font-display italic text-xs leading-tight line-clamp-2">{item.title}</div>
+                  </div>
+                </motion.button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
 
       <p className="px-6 md:px-10 py-10 max-w-[60ch] text-sm font-marker text-ink/60">
         psst — every piece is draggable. shuffle the room however you like.
@@ -257,23 +297,24 @@ function RoomViewer({ gallery, onClose }: { gallery: Gallery; onClose: () => voi
         onClick={(e) => e.stopPropagation()}
         className="relative max-w-5xl w-full"
       >
-        <div className="flex items-center justify-between mb-4 text-paper px-4">
-          <div>
-            <div className="font-marker text-hotpink text-2xl">{gallery.title} — room open</div>
-            <div className="font-accent uppercase tracking-widest text-xs text-paper/60">
+        <div className="flex items-center justify-between gap-3 mb-3 sm:mb-4 text-paper px-3 sm:px-4">
+          <div className="min-w-0 flex-1">
+            <div className="font-marker text-hotpink text-base sm:text-2xl truncate">{gallery.title} — room open</div>
+            <div className="font-accent uppercase tracking-widest text-[10px] sm:text-xs text-paper/60 truncate">
               piece {page + 1} of {total} · {gallery.subtitle}
             </div>
           </div>
           <button
             onClick={onClose}
             data-cursor="close"
-            className="font-accent uppercase tracking-widest text-sm border border-paper/40 px-4 py-2 hover:bg-paper hover:text-ink transition-colors"
+            className="shrink-0 font-accent uppercase tracking-widest text-[10px] sm:text-sm border border-paper/40 px-2.5 sm:px-4 py-1.5 sm:py-2 hover:bg-paper hover:text-ink transition-colors"
           >
-            ✕ exit room
+            ✕ exit
           </button>
         </div>
 
-        <div className="relative bg-card aspect-[4/3] md:aspect-[16/9] shadow-2xl border-4 border-ink overflow-hidden">
+
+        <div className="relative bg-card aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9] shadow-2xl border-2 sm:border-4 border-ink overflow-hidden mx-2 md:mx-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={page}
@@ -282,33 +323,33 @@ function RoomViewer({ gallery, onClose }: { gallery: Gallery; onClose: () => voi
               exit={{ rotateY: -80, opacity: 0, x: -60 }}
               transition={{ duration: 0.55, ease: [0.19, 1, 0.22, 1] }}
               style={{ transformOrigin: "left center" }}
-              className="absolute inset-0 grid md:grid-cols-2"
+              className="absolute inset-0 grid grid-rows-2 md:grid-rows-1 md:grid-cols-2"
             >
-              <div className={`${gallery.color} grid place-items-center p-8 relative vhs`}>
-                {/* decorative scatter inside the room */}
-                <div className="absolute top-4 left-4 w-16 h-4 tape-pink rotate-[-8deg]" />
-                <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-paper/20" />
-                <div className="text-center relative z-10">
-                  <div className="font-marker text-white/80 text-xl mb-3">{item.tag}</div>
-                  <div className="font-accent uppercase text-white text-5xl md:text-6xl tracking-tighter leading-[0.85]">
+              <div className={`${gallery.color} grid place-items-center p-5 sm:p-8 relative vhs`}>
+                <div className="absolute top-3 left-3 w-12 sm:w-16 h-3 sm:h-4 tape-pink rotate-[-8deg]" />
+                <div className="absolute bottom-4 right-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-paper/20" />
+                <div className="text-center relative z-10 max-w-full">
+                  <div className="font-marker text-white/80 text-base sm:text-xl mb-2 sm:mb-3">{item.tag}</div>
+                  <div className="font-accent uppercase text-white text-3xl sm:text-5xl md:text-6xl tracking-tighter leading-[0.85] break-words">
                     {item.title.split(" — ")[0]}
                   </div>
-                  <Star className="w-10 h-10 text-white/70 mx-auto mt-4 anim-spin-slow" />
+                  <Star className="w-8 h-8 sm:w-10 sm:h-10 text-white/70 mx-auto mt-3 sm:mt-4 anim-spin-slow" />
                 </div>
               </div>
-              <div className="p-10 flex flex-col justify-center bg-paper relative">
-                <div className="font-display italic text-3xl leading-tight">{item.title}</div>
-                <p className="mt-4 text-lg text-ink/80">{item.note}</p>
-                <div className="mt-6 inline-block self-start text-xs font-accent uppercase tracking-widest bg-ink text-paper px-3 py-1">
+              <div className="p-5 sm:p-8 md:p-10 flex flex-col justify-center bg-paper relative overflow-y-auto">
+                <div className="font-display italic text-xl sm:text-2xl md:text-3xl leading-tight">{item.title}</div>
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-ink/80">{item.note}</p>
+                <div className="mt-4 sm:mt-6 inline-block self-start text-[10px] sm:text-xs font-accent uppercase tracking-widest bg-ink text-paper px-3 py-1">
                   {item.tag}
                 </div>
-                <div className="absolute bottom-4 right-4 font-hand text-ink/40 text-sm">
+                <div className="hidden md:block absolute bottom-4 right-4 font-hand text-ink/40 text-sm">
                   — flip with arrows or dots →
                 </div>
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
+
 
         <div className="flex justify-between items-center mt-4 px-2">
           <button

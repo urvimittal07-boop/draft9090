@@ -76,22 +76,31 @@ function Home() {
           </motion.div>
 
           {/* draggable hero collage — clustered top-right, contained */}
-          <div className="lg:col-span-5 relative h-[560px] lg:h-[720px] overflow-hidden">
+          <div className="lg:col-span-5 relative h-[480px] sm:h-[560px] lg:h-[720px] overflow-hidden mx-auto w-full max-w-[480px] lg:max-w-none">
             <DraggablePiece
               initial={{ top: 8, right: 8, rotate: -5 }}
-              className="w-72 h-[26rem] lg:w-80 lg:h-[30rem] paper-card p-3 vhs anim-float"
+              className="w-56 h-80 sm:w-72 sm:h-[26rem] lg:w-80 lg:h-[30rem] paper-card p-3 vhs anim-float"
               cursorLabel="drag me"
               z={5}
             >
-              <img src={heroGirl} alt="urvi portrait" width={1024} height={1280} className="w-full h-full object-cover" />
+              <img
+                src={heroGirl}
+                alt="urvi portrait"
+                width={1024}
+                height={1280}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                className="w-full h-full object-cover"
+              />
               <div className="absolute -top-3 left-10 w-24 h-6 tape-pink rotate-[10deg]" />
               <div className="absolute -bottom-3 right-6 w-20 h-6 tape rotate-[-8deg]" />
               <div className="absolute bottom-3 left-3 bg-cream px-2 py-0.5 font-hand text-sm text-ink rotate-[-3deg]">urvi ✿ '26</div>
             </DraggablePiece>
 
             <DraggablePiece
-              initial={{ top: 24, right: 280, rotate: -10 }}
-              className="w-24 h-24 rounded-full bg-orange grid place-items-center text-white font-accent text-[11px] uppercase text-center p-3 shadow-xl anim-jiggle"
+              initial={{ top: 24, right: 200, rotate: -10 }}
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-orange grid place-items-center text-white font-accent text-[10px] sm:text-[11px] uppercase text-center p-3 shadow-xl anim-jiggle"
               cursorLabel="spin"
               z={6}
             >
@@ -99,8 +108,8 @@ function Home() {
             </DraggablePiece>
 
             <DraggablePiece
-              initial={{ bottom: 40, right: 200, rotate: 8 }}
-              className="w-32 h-10 bg-babypink border-2 border-ink grid place-items-center font-hand text-ink text-base"
+              initial={{ bottom: 40, right: 140, rotate: 8 }}
+              className="w-28 sm:w-32 h-10 bg-babypink border-2 border-ink grid place-items-center font-hand text-ink text-base"
               cursorLabel="hello"
               z={4}
             >
@@ -109,13 +118,13 @@ function Home() {
 
             <DraggablePiece
               initial={{ bottom: 8, left: 8, rotate: -6 }}
-              className="w-28 h-28 bg-cream paper-card p-2 grid place-items-center"
+              className="w-24 h-24 sm:w-28 sm:h-28 bg-cream paper-card p-2 grid place-items-center"
               cursorLabel="ticket"
               z={3}
             >
               <div className="text-center">
                 <div className="font-accent uppercase text-[9px] tracking-widest text-ink/60">admit one</div>
-                <div className="font-display italic text-2xl text-hotpink leading-none mt-1">urvi's<br/>world</div>
+                <div className="font-display italic text-xl sm:text-2xl text-hotpink leading-none mt-1">urvi's<br/>world</div>
               </div>
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-14 h-4 tape-pink rotate-[6deg]" />
             </DraggablePiece>
@@ -128,6 +137,7 @@ function Home() {
             <Scribble className="absolute bottom-10 left-10 w-24 text-ink/30 pointer-events-none" />
           </div>
         </div>
+
 
         {/* scroll cue */}
         <motion.div
