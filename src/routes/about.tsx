@@ -101,12 +101,13 @@ function About() {
               )}
               <div className={`absolute -top-2 left-4 w-16 h-4 ${m.tape ?? "tape-pink"} rotate-[-6deg]`} />
               <div className="absolute inset-0 p-3 flex flex-col justify-end">
-                <div className={`${m.hand ? "font-hand text-3xl" : "font-accent uppercase text-sm tracking-widest"}`}>
+                <div className={`${m.hand ? "font-hand text-2xl sm:text-3xl" : "font-accent uppercase text-[11px] sm:text-sm tracking-widest leading-tight"}`}>
                   {m.label}
                 </div>
-                <div className={`text-xs mt-1 ${m.img ? "bg-card/90 inline-block px-1.5 py-0.5 w-fit font-hand text-base text-ink" : "opacity-80"}`}>
+                <div className={`text-[10px] sm:text-xs mt-1 ${m.img ? "bg-card/90 inline-block px-1.5 py-0.5 w-fit font-hand text-sm sm:text-base text-ink" : "opacity-80"}`}>
                   {m.note}
                 </div>
+
               </div>
             </motion.div>
           ))}
