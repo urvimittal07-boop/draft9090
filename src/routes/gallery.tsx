@@ -297,21 +297,22 @@ function RoomViewer({ gallery, onClose }: { gallery: Gallery; onClose: () => voi
         onClick={(e) => e.stopPropagation()}
         className="relative max-w-5xl w-full"
       >
-        <div className="flex items-center justify-between mb-4 text-paper px-4">
-          <div>
-            <div className="font-marker text-hotpink text-2xl">{gallery.title} — room open</div>
-            <div className="font-accent uppercase tracking-widest text-xs text-paper/60">
+        <div className="flex items-center justify-between gap-3 mb-3 sm:mb-4 text-paper px-3 sm:px-4">
+          <div className="min-w-0 flex-1">
+            <div className="font-marker text-hotpink text-base sm:text-2xl truncate">{gallery.title} — room open</div>
+            <div className="font-accent uppercase tracking-widest text-[10px] sm:text-xs text-paper/60 truncate">
               piece {page + 1} of {total} · {gallery.subtitle}
             </div>
           </div>
           <button
             onClick={onClose}
             data-cursor="close"
-            className="font-accent uppercase tracking-widest text-sm border border-paper/40 px-4 py-2 hover:bg-paper hover:text-ink transition-colors"
+            className="shrink-0 font-accent uppercase tracking-widest text-[10px] sm:text-sm border border-paper/40 px-2.5 sm:px-4 py-1.5 sm:py-2 hover:bg-paper hover:text-ink transition-colors"
           >
-            ✕ exit room
+            ✕ exit
           </button>
         </div>
+
 
         <div className="relative bg-card aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9] shadow-2xl border-2 sm:border-4 border-ink overflow-hidden mx-2 md:mx-0">
           <AnimatePresence mode="wait">
