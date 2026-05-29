@@ -313,7 +313,7 @@ function RoomViewer({ gallery, onClose }: { gallery: Gallery; onClose: () => voi
           </button>
         </div>
 
-        <div className="relative bg-card aspect-[4/3] md:aspect-[16/9] shadow-2xl border-4 border-ink overflow-hidden">
+        <div className="relative bg-card aspect-[4/5] sm:aspect-[4/3] md:aspect-[16/9] shadow-2xl border-2 sm:border-4 border-ink overflow-hidden mx-2 md:mx-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={page}
@@ -322,33 +322,33 @@ function RoomViewer({ gallery, onClose }: { gallery: Gallery; onClose: () => voi
               exit={{ rotateY: -80, opacity: 0, x: -60 }}
               transition={{ duration: 0.55, ease: [0.19, 1, 0.22, 1] }}
               style={{ transformOrigin: "left center" }}
-              className="absolute inset-0 grid md:grid-cols-2"
+              className="absolute inset-0 grid grid-rows-2 md:grid-rows-1 md:grid-cols-2"
             >
-              <div className={`${gallery.color} grid place-items-center p-8 relative vhs`}>
-                {/* decorative scatter inside the room */}
-                <div className="absolute top-4 left-4 w-16 h-4 tape-pink rotate-[-8deg]" />
-                <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-paper/20" />
-                <div className="text-center relative z-10">
-                  <div className="font-marker text-white/80 text-xl mb-3">{item.tag}</div>
-                  <div className="font-accent uppercase text-white text-5xl md:text-6xl tracking-tighter leading-[0.85]">
+              <div className={`${gallery.color} grid place-items-center p-5 sm:p-8 relative vhs`}>
+                <div className="absolute top-3 left-3 w-12 sm:w-16 h-3 sm:h-4 tape-pink rotate-[-8deg]" />
+                <div className="absolute bottom-4 right-4 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-paper/20" />
+                <div className="text-center relative z-10 max-w-full">
+                  <div className="font-marker text-white/80 text-base sm:text-xl mb-2 sm:mb-3">{item.tag}</div>
+                  <div className="font-accent uppercase text-white text-3xl sm:text-5xl md:text-6xl tracking-tighter leading-[0.85] break-words">
                     {item.title.split(" — ")[0]}
                   </div>
-                  <Star className="w-10 h-10 text-white/70 mx-auto mt-4 anim-spin-slow" />
+                  <Star className="w-8 h-8 sm:w-10 sm:h-10 text-white/70 mx-auto mt-3 sm:mt-4 anim-spin-slow" />
                 </div>
               </div>
-              <div className="p-10 flex flex-col justify-center bg-paper relative">
-                <div className="font-display italic text-3xl leading-tight">{item.title}</div>
-                <p className="mt-4 text-lg text-ink/80">{item.note}</p>
-                <div className="mt-6 inline-block self-start text-xs font-accent uppercase tracking-widest bg-ink text-paper px-3 py-1">
+              <div className="p-5 sm:p-8 md:p-10 flex flex-col justify-center bg-paper relative overflow-y-auto">
+                <div className="font-display italic text-xl sm:text-2xl md:text-3xl leading-tight">{item.title}</div>
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-ink/80">{item.note}</p>
+                <div className="mt-4 sm:mt-6 inline-block self-start text-[10px] sm:text-xs font-accent uppercase tracking-widest bg-ink text-paper px-3 py-1">
                   {item.tag}
                 </div>
-                <div className="absolute bottom-4 right-4 font-hand text-ink/40 text-sm">
+                <div className="hidden md:block absolute bottom-4 right-4 font-hand text-ink/40 text-sm">
                   — flip with arrows or dots →
                 </div>
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
+
 
         <div className="flex justify-between items-center mt-4 px-2">
           <button
