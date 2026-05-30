@@ -22,7 +22,7 @@ export const Route = createFileRoute("/about")({
 const MOSAIC = [
   { label: "Cinema", note: "the everything religion", img: mosaicLoves, span: "col-span-2 row-span-2", rot: 2, tape: "tape-pink" },
   { label: "Mountains", note: "high & quiet", img: mosaicMountains, span: "col-span-2 row-span-2", rot: -1.5, tape: "tape" },
-  { label: "Bollywood", note: "soft corner, loud songs", color: "bg-hotpink text-paper", span: "col-span-2 row-span-1", rot: -1 },
+  { label: "MUSIC", note: "soft corner, loud songs", color: "bg-hotpink text-paper", span: "col-span-2 row-span-1", rot: -1 },
   { label: "Desserts", note: "tiramisu girl ✿", color: "bg-cream", span: "col-span-1 row-span-1", rot: -2 },
   { label: "Dogs", note: "every single one", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: 2 },
   { label: "Swimming", note: "lap-after-lap brain", color: "bg-babypink/70", span: "col-span-1 row-span-1", rot: -3 },
@@ -101,7 +101,7 @@ function About() {
               )}
               <div className={`absolute -top-2 left-4 w-16 h-4 ${m.tape ?? "tape-pink"} rotate-[-6deg]`} />
               <div className="absolute inset-0 p-3 flex flex-col justify-end">
-                <div className={`${m.hand ? "font-hand text-2xl sm:text-3xl" : "font-accent uppercase text-[11px] sm:text-sm tracking-widest leading-tight"}`}>
+                <div className={`${m.hand ? "font-hand text-2xl sm:text-3xl" : "font-accent uppercase text-[11px] sm:text-sm tracking-widest leading-tight text-gray-950 bg-slate-50"}`}>
                   {m.label}
                 </div>
                 <div className={`text-[10px] sm:text-xs mt-1 ${m.img ? "bg-card/90 inline-block px-1.5 py-0.5 w-fit font-hand text-sm sm:text-base text-ink" : "opacity-80"}`}>
@@ -173,8 +173,8 @@ function About() {
         <StickyNote rotate={-3} color="pink" className="inline-block mb-8">
           p.s. i don&apos;t bite (much)
         </StickyNote>
-        <h3 className="font-display italic text-4xl md:text-6xl leading-tight">
-          M
+        <h3 className="font-display italic text-4xl md:text-5xl leading-tight max-w-[25ch] mx-auto">
+          Inspired by everything I’m made of, shaped into stories, strategy, and worlds people can feel
         </h3>
         <Scribble className="mx-auto w-40 text-hotpink mt-6" />
       </section>
