@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import mosaicLoves from "@/assets/mosaic-loves.jpg";
 import mosaicMountains from "@/assets/mosaic-mountains.jpg";
 import heroGirl from "@/assets/hero-girl.jpg";
-import handbag from "@/assets/handbag.png";
+import handbag from "@/assets/new-handbag.png";
 import { Star, Scribble, StickyNote } from "@/components/zine";
 
 export const Route = createFileRoute("/about")({
