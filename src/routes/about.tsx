@@ -20,23 +20,23 @@ export const Route = createFileRoute("/about")({
 });
 
 const MOSAIC = [
-  { label: "Cinema", note: "the everything religion", img: mosaicLoves, span: "col-span-2 row-span-2", rot: 2, tape: "tape-pink" },
-  { label: "Mountains", note: "high & quiet", img: mosaicMountains, span: "col-span-2 row-span-2", rot: -1.5, tape: "tape" },
-  { label: "MUSIC", note: "soft corner, loud songs", color: "bg-hotpink text-paper", span: "col-span-2 row-span-1", rot: -1 },
-  { label: "Desserts", note: "tiramisu girl ✿", color: "bg-cream", span: "col-span-1 row-span-1", rot: -2 },
+  { label: "Cinema", note: "bollywood heart, hollywood eye", img: mosaicLoves, span: "col-span-2 row-span-2", rot: 2, tape: "tape-pink" },
+  { label: "Mountains", note: "thin air, thick thoughts", img: mosaicMountains, span: "col-span-2 row-span-2", rot: -1.5, tape: "tape" },
+  { label: "Music", note: "upbeat R&B to qawwali nights", color: "bg-hotpink text-paper", span: "col-span-2 row-span-1", rot: -1 },
   { label: "Dogs", note: "every single one", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: 2 },
+  { label: "Dancing", note: "trained bharatnatyam → hip-hop", color: "bg-babypink/80", span: "col-span-2 row-span-1", rot: -2 },
   { label: "Swimming", note: "lap-after-lap brain", color: "bg-babypink/70", span: "col-span-1 row-span-1", rot: -3 },
   { label: "Running", note: "morning miles", color: "bg-babypink", span: "col-span-1 row-span-1", rot: 3 },
   { label: "Mixed media", note: "collage > clean slate", color: "bg-babypink/60", span: "col-span-2 row-span-1", rot: 1.5 },
-  { label: "Sketching", note: "in math class", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
-  { label: "Styling", note: "fits = storytelling", color: "bg-ink text-paper", span: "col-span-1 row-span-2", rot: 1 },
-  { label: "Sewing", note: "i make my fits", color: "bg-cream", span: "col-span-1 row-span-1", rot: 2 },
+  { label: "Sketching", note: "margins of every notebook", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
+  { label: "Sewing", note: "stitching my own fits", color: "bg-cream", span: "col-span-1 row-span-1", rot: 2 },
+  { label: "Styling", note: "weird things from scratch, quirky on purpose", color: "bg-ink text-paper", span: "col-span-2 row-span-1", rot: 1 },
   { label: "Meditation", note: "soft mind, loud world", color: "bg-cream", span: "col-span-2 row-span-1", rot: -1, hand: true },
   { label: "Poetry", note: "midnight notes app", color: "bg-orange/80 text-paper", span: "col-span-1 row-span-1", rot: -3 },
   { label: "Substack", note: "newsletters i live in", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: 2 },
-  { label: "Music", note: "headphones glued on", color: "bg-ink text-paper", span: "col-span-2 row-span-1", rot: -2 },
-  { label: "Food", note: "tasting menu of life", color: "bg-cream", span: "col-span-1 row-span-1", rot: 3 },
-  { label: "Languages & culture", note: "english · français · हिन्दी · मारवाड़ी · नेपाली · বাংলা", color: "bg-hotpink text-paper", span: "col-span-2 row-span-1", rot: -1 },
+  { label: "Food", note: "tasting menu of life, especially tiramisu", color: "bg-cream", span: "col-span-2 row-span-1", rot: 3 },
+  { label: "Languages", note: "english · hindi · français · नेपाली · বাংলা · मारवाड़ी", color: "bg-hotpink text-paper", span: "col-span-2 row-span-1", rot: -1 },
+  { label: "Culture", note: "inspired by cultures all over the world", color: "bg-cream", span: "col-span-2 row-span-1", rot: 1 },
   { label: "Debating", note: "i will win (politely)", color: "bg-babypink", span: "col-span-1 row-span-1", rot: 3 },
   { label: "Social groups", note: "rooms full of people", color: "bg-card border border-ink/15", span: "col-span-1 row-span-1", rot: -2 },
   { label: "Hosting", note: "a table, candles, chaos", color: "bg-ink text-paper", span: "col-span-2 row-span-1", rot: 1 },
@@ -44,14 +44,22 @@ const MOSAIC = [
 
 
 const TOOLS = [
-  { name: "Photoshop", abbr: "Ps", color: "bg-[#001E36] text-[#31A8FF]" },
-  { name: "Illustrator", abbr: "Ai", color: "bg-[#330000] text-[#FF9A00]" },
-  { name: "InDesign", abbr: "Id", color: "bg-[#49021F] text-[#FF3366]" },
-  { name: "Premiere Pro", abbr: "Pr", color: "bg-[#00005B] text-[#9999FF]" },
-  { name: "After Effects", abbr: "Ae", color: "bg-[#00005B] text-[#D291FF]" },
-  { name: "Figma", abbr: "Fg", color: "bg-ink text-[#A259FF]" },
+  { name: "Napkin AI", abbr: "Nk", color: "bg-[#1a1a1a] text-[#ffd166]" },
   { name: "Canva", abbr: "Cv", color: "bg-[#00C4CC] text-white" },
+  { name: "Lovable", abbr: "Lv", color: "bg-[#ff6b9a] text-white" },
+  { name: "ChatGPT", abbr: "Gp", color: "bg-[#10A37F] text-white" },
+  { name: "Perplexity", abbr: "Px", color: "bg-[#1f1f1f] text-[#22d3ee]" },
+  { name: "Gemini", abbr: "Gm", color: "bg-[#1a73e8] text-white" },
   { name: "Notion", abbr: "No", color: "bg-white text-ink border-2 border-ink" },
+  { name: "Gamma", abbr: "Ga", color: "bg-[#8a4dff] text-white" },
+  { name: "Excel", abbr: "Xl", color: "bg-[#107C41] text-white" },
+  { name: "Framer", abbr: "Fr", color: "bg-[#0055FF] text-white" },
+  { name: "Power BI", abbr: "Pb", color: "bg-[#F2C811] text-ink" },
+  { name: "CapCut", abbr: "Cc", color: "bg-ink text-white" },
+  { name: "WordPress", abbr: "Wp", color: "bg-[#21759B] text-white" },
+  { name: "NotebookLM", abbr: "Nl", color: "bg-[#1f6feb] text-white" },
+  { name: "Genspark", abbr: "Gs", color: "bg-[#ff5a1f] text-white" },
+  { name: "Adobe Suite", abbr: "Ad", color: "bg-[#FA0F00] text-white" },
 ];
 
 const SKILLS = [
@@ -88,7 +96,7 @@ function About() {
           <div className="font-marker text-orange text-xl -rotate-3 hidden md:block">a wall of me ✿</div>
         </div>
 
-        <div className="grid grid-cols-4 md:grid-cols-6 auto-rows-[90px] sm:auto-rows-[110px] md:auto-rows-[140px] gap-2 sm:gap-3">
+        <div className="grid grid-cols-4 md:grid-cols-6 auto-rows-[72px] sm:auto-rows-[88px] md:auto-rows-[112px] gap-1.5 sm:gap-2">
           {MOSAIC.map((m, i) => (
             <motion.div
               key={i}
