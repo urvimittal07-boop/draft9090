@@ -134,11 +134,13 @@ function About() {
             </h2>
           </div>
           <div className="space-y-4 text-paper/85 text-lg leading-relaxed">
-            <p>
-              Branding &amp; Advertising undergraduate at NMIMS Mumbai (CGPA 9.03) who is the Literary President in NMIMS, has chaired college fests, served as Co-Curricular captain, and represented at platforms including IIT Bombay and IIM Ahmedabad. Beyond the titles, I love building brands, crafting campaigns, designing experiences, and creating work that sparks conversation. For the academic achievements, research, and case studies, head to the Academic section
-            </p>
-            <p>
-              {"\n"}
+            <p className="whitespace-pre-line">
+              Branding &amp; Advertising Undergraduate, NMIMS Mumbai (CGPA 9.03) {"\n"}
+              • Literary President, NMIMS Mumbai{"\n"}
+              • Former Co-Curricular Captain &amp; College Fest Chairperson{"\n"}
+              • Represented at IIT Bombay &amp; IIM Ahmedabad {"\n"}
+              • Building brands, crafting campaigns &amp; designing experiences that spark conversation {"\n"}
+              • For research, case studies &amp; academic achievements → Academic Section
             </p>
           </div>
         </div>
