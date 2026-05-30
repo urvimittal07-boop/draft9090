@@ -36,7 +36,7 @@ export function StickyNote({
 }) {
   const bg =
     color === "pink"
-      ? "bg-hotpink text-white"
+      ? "bg-pink-300 text-gray-950"
       : color === "orange"
       ? "bg-orange text-white"
       : "bg-[oklch(0.95_0.12_92)] text-ink";
