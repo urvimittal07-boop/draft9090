@@ -127,16 +127,10 @@ function About() {
           </div>
           <div className="space-y-4 text-paper/85 text-lg leading-relaxed">
             <p>
-              Branding &amp; Advertising undergraduate at NMIMS Mumbai (CGPA 8.96).
-              Designer, copywriter, and strategist with 7 campaign case studies, 6
-              capstone projects, and a creative gallery spanning magazines, ad films,
-              and ad games.
+              Branding &amp; Advertising undergraduate at NMIMS Mumbai (CGPA 9.03) who is the Literary President in NMIMS, has chaired college fests, served as Co-Curricular captain, and represented at platforms including IIT Bombay and IIM Ahmedabad. Beyond the titles, I love building brands, crafting campaigns, designing experiences, and creating work that sparks conversation. For the academic achievements, research, and case studies, head to the Academic section
             </p>
             <p>
-              I&apos;ve represented at IIM Ahmedabad &amp; IIT Bombay, chaired three
-              college fests, and turned in research on Zara Studio, Fairmont, and Salt
-              Tech. I&apos;m looking for roles where the brief says &quot;make it weird,
-              make it work.&quot;
+              {"\n"}
             </p>
           </div>
         </div>
