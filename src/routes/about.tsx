@@ -96,7 +96,7 @@ function About() {
           <div className="font-marker text-orange text-xl -rotate-3 hidden md:block">a wall of me ✿</div>
         </div>
 
-        <div className="grid grid-cols-4 md:grid-cols-6 auto-rows-[90px] sm:auto-rows-[110px] md:auto-rows-[140px] gap-2 sm:gap-3">
+        <div className="grid grid-cols-4 md:grid-cols-6 auto-rows-[72px] sm:auto-rows-[88px] md:auto-rows-[112px] gap-1.5 sm:gap-2">
           {MOSAIC.map((m, i) => (
             <motion.div
               key={i}
